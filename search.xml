@@ -30,6 +30,12 @@
         <content type="html"><![CDATA[<h1 id="行内公示">行内公示</h1><ul><li>这里一个行内公示<span class="math inline">\(\Delta_{i,t}=x^{2}+y_{i}\)</span></li></ul><h2 id="独立公示">独立公示</h2><p><span class="math display">\[y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}\]</span></p>]]></content>
       
       
+      <categories>
+          
+          <category> 程序 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -49,6 +55,18 @@
         <content type="html"><![CDATA[<h1 id="应该没问题了吧">应该没问题了吧</h1><ul><li>叽叽叽叽</li><li><ul><li>坎坎坷坷</li></ul></li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 经济 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 金融 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -61,6 +79,12 @@
       
         <content type="html"><![CDATA[<h2 id="测试第二篇">测试第二篇</h2><ul><li>吗，，，</li><li>okk扩扩绿扩绿</li></ul>]]></content>
       
+      
+      <categories>
+          
+          <category> 经济 </category>
+          
+      </categories>
       
       
         <tags>
@@ -81,6 +105,18 @@
         <content type="html"><![CDATA[<h1 id="一级标题">一级标题</h1><ul><li><p>重点</p></li><li><ul><li><p>重点</p><h2 id="二级标题">二级标题</h2></li></ul></li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 代码 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 代码 </tag>
+            
+        </tags>
       
     </entry>
     
