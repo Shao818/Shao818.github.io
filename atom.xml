@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-11-30T08:17:57.434Z</updated>
+  <updated>2020-11-30T10:54:40.702Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/posts/3927316218/"/>
     <id>http://example.com/posts/3927316218/</id>
     <published>2020-11-30T08:12:16.000Z</published>
-    <updated>2020-11-30T08:17:57.434Z</updated>
+    <updated>2020-11-30T10:54:40.702Z</updated>
     
     
       
@@ -29,12 +29,15 @@
         
         
     <summary type="html">&lt;p&gt;不合适将附带科技局&lt;/p&gt;
-&lt;script type=&quot;math/tex;</summary>
+&lt;p&gt;$$y=x^{2}$$&lt;/p&gt;
+</summary>
         
       
     
     
     
+    
+    <category term="公式" scheme="http://example.com/tags/%E5%85%AC%E5%BC%8F/"/>
     
   </entry>
   
@@ -64,7 +67,7 @@
     <link href="http://example.com/posts/3176525040/"/>
     <id>http://example.com/posts/3176525040/</id>
     <published>2020-11-30T07:45:18.000Z</published>
-    <updated>2020-11-30T08:17:57.433Z</updated>
+    <updated>2020-11-30T10:48:57.627Z</updated>
     
     
       
@@ -77,6 +80,8 @@
     
     
     
+    
+    <category term="测试" scheme="http://example.com/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
