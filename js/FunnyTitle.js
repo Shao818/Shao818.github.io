@@ -3,7 +3,7 @@
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          $('[rel="icon"]').attr('href', "https://cdn.jsdelivr.net/gh/guixinchn/image/blog/favicon.png");
-         document.title = '欢迎拟来到';
+         document.title = '欢迎你来到';
          clearTimeout(titleTime);
      }
      else {
