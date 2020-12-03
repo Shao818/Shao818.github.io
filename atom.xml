@@ -6,7 +6,7 @@
   <link href="https://wangshao0818.com/atom.xml" rel="self"/>
   
   <link href="https://wangshao0818.com/"/>
-  <updated>2020-12-01T04:57:59.950Z</updated>
+  <updated>2020-12-03T00:55:07.221Z</updated>
   <id>https://wangshao0818.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据科学</title>
+    <link href="https://wangshao0818.com/posts/734154334/"/>
+    <id>https://wangshao0818.com/posts/734154334/</id>
+    <published>2020-12-03T00:39:19.000Z</published>
+    <updated>2020-12-03T00:55:07.221Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;数据科学2&quot;&gt;数据科学2&lt;/h1&gt;
+&lt;h2 id=&quot;列表list&quot;&gt;列表（list）&lt;/h2&gt;
+&lt;p&gt;列表，可以包含不同类型的对象，甚至可以包括其他列表。列表的灵活性使得它 非常有用。&lt;/p&gt;
+&lt;p&gt;例如，用 R</summary>
+        
+      
+    
+    
+    
+    <category term="数据科学" scheme="https://wangshao0818.com/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    <category term="R语言" scheme="https://wangshao0818.com/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/R%E8%AF%AD%E8%A8%80/"/>
+    
+    
+    <category term="数据科学" scheme="https://wangshao0818.com/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/"/>
+    
+    <category term="R语言" scheme="https://wangshao0818.com/tags/R%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>GDP分析手册</title>

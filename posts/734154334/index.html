@@ -1,0 +1,1809 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据科学, R,Stata等">
+    <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据科学 | 王芍</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="王芍" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">王芍</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">王芍</div>
+        <div class="logo-desc">
+            
+            本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Shao818" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Shao818" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/shao818/Figure/raw/master/null/data-science.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据科学</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">
+                                <span class="chip bg-color">数据科学</span>
+                            </a>
+                        
+                            <a href="/tags/R%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">R语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" class="post-category">
+                                数据科学
+                            </a>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/R%E8%AF%AD%E8%A8%80/" class="post-category">
+                                R语言
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-03
+                </div>
+                
+
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    23 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="数据科学2">数据科学2</h1>
+<h2 id="列表list">列表（list）</h2>
+<p>列表，可以包含不同类型的对象，甚至可以包括其他列表。列表的灵活性使得它 非常有用。</p>
+<p>例如，用 R 拟合一个线性回归模型，其返回结果就是一个列表，其中包含了线性 回归的详细结果，如线性回归系数（数值向量）、残差（数值向量）、QR 分解 （包含一个矩阵和其他对象的列表）等。因为这些结果全都被打包到一个列表 中，就可以很方便地提取所需信息，而无需每次调用不同的函数。</p>
+<h3 id="创建列表">创建列表</h3>
+<p>可以用函数<code>list()</code>创建列表。不同类型的对象可以被装进同一个列表中。 例如，创建了一个列表，包含 3 个成分：一个单元素的数值向量、一个两元素的 逻辑向量和一个长度为 3 的字符向量：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>l0 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="kw">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2"></a>l0</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1]  TRUE FALSE
+## 
+## [[3]]
+## [1] "a" "b" "c"</code></pre>
+<p>可以在创建列表时，为列表的每个成分指定名称：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>l1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="dt">z =</span> <span class="kw">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb3-2"><a href="#cb3-2"></a>l1</span></code></pre></div>
+<pre><code>## $x
+## [1] 1
+## 
+## $y
+## [1]  TRUE FALSE
+## 
+## $z
+## [1] "a" "b" "c"</code></pre>
+<p>也可以创建列表后再对列表成分命名或修改命名：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">names</span>(l1) &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># 移除列表成分的名字</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">names</span>(l1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"A"</span>,<span class="st">"B"</span>,<span class="st">"C"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>l1</span></code></pre></div>
+<pre><code>## $A
+## [1] 1
+## 
+## $B
+## [1]  TRUE FALSE
+## 
+## $C
+## [1] "a" "b" "c"</code></pre>
+<h3 id="从列表中提取成分下的元素">从列表中提取成分下的元素</h3>
+<p>提取列表中成分下的元素，最常用的方法是用<code>$</code>，通过成分名称来提取该成分下 的元素（内容）：</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>l1<span class="op">$</span>B</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>l1<span class="op">$</span>m <span class="co"># 访问不存在的成分m, 将会返回NULL</span></span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>也可以用 [[n]] 来提取列表第 n 个成分的元素，n 也可以换成成分的名字：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>l1[[<span class="dv">2</span>]] <span class="co"># 同l1[["B"]]</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE</code></pre>
+<p>使用 [[]] 提取列表中某个成分的元素更加灵活，因为可以用变量传递想要提取其 元素的成分名字（用于函数调用)：</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>member &lt;-<span class="st"> "B"</span> <span class="co">#想要取出的成分名字</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>l1[[member]]</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE</code></pre>
+<h3 id="构建列表子集">构建列表子集</h3>
+<p>经常也需要从列表中提取多个成分的元素，由这些成分组成的列表构成了原列表 的一个子集。</p>
+<p>就像构建向量和矩阵的子集一样，构建一个列表子集是用<code>[]</code>，可以取出列表中的 一些成分，然后放到一个新的列表中。<br>
+<code>[]</code>中可以用字符向量表示成分名称，用数值向量表示成分位置，或用逻辑向量指 定是否选择，来取出列表成分。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>l1[<span class="st">"A"</span>] <span class="co"># 同l1[1]</span></span></code></pre></div>
+<pre><code>## $A
+## [1] 1</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>l1[<span class="kw">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>)] <span class="co"># 同l1[c(1, 2)]</span></span></code></pre></div>
+<pre><code>## $A
+## [1] 1
+## 
+## $B
+## [1]  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>l1[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)]</span></code></pre></div>
+<pre><code>## $A
+## [1] 1
+## 
+## $C
+## [1] "a" "b" "c"</code></pre>
+<p>注意： 用<code>[]</code>提取若干成分时，返回列表的子集，还是一个列表；用<code>[[ ]]</code> 提取单个成分的元素，返回的是对应成分的元素。总之，<code>[]</code>提取对象的子集，类型仍是该对象；[[]] 提取对象的内容（下一级元素）。</p>
+<h3 id="对列表的成分赋值">对列表的成分赋值</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>l1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="dt">z =</span> <span class="kw">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb21-2"><a href="#cb21-2"></a>l1<span class="op">$</span>x &lt;-<span class="st"> </span><span class="dv">0</span> ;l1<span class="co"># 将列表的成分x赋值为0;</span></span></code></pre></div>
+<pre><code>## $x
+## [1] 0
+## 
+## $y
+## [1]  TRUE FALSE
+## 
+## $z
+## [1] "a" "b" "c"</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>l1<span class="op">$</span>m &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>l1</span></code></pre></div>
+<pre><code>## $x
+## [1] 0
+## 
+## $y
+## [1]  TRUE FALSE
+## 
+## $z
+## [1] "a" "b" "c"
+## 
+## $m
+## [1] 4</code></pre>
+<p>也可以同时给多个列表成分赋值：</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>l1[<span class="kw">c</span>(<span class="st">"y"</span>, <span class="st">"z"</span>)] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">y =</span> <span class="st">"new value for y"</span>, <span class="dt">z =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb25-2"><a href="#cb25-2"></a>l1</span></code></pre></div>
+<pre><code>## $x
+## [1] 0
+## 
+## $y
+## [1] "new value for y"
+## 
+## $z
+## [1] 1 2
+## 
+## $m
+## [1] 4</code></pre>
+<p>若要移除列表中的某些成分，只需赋值为 NULL：</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>l1[<span class="kw">c</span>(<span class="st">"z"</span>, <span class="st">"m"</span>)] &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>l1</span></code></pre></div>
+<pre><code>## $x
+## [1] 0
+## 
+## $y
+## [1] "new value for y"</code></pre>
+<h3 id="列表函数">列表函数</h3>
+<p>用函数 <code>as.list()</code> 可将向量转换成列表：</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>l3 &lt;-<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">c</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">3</span>))</span>
+<span id="cb29-2"><a href="#cb29-2"></a>l3</span></code></pre></div>
+<pre><code>## $a
+## [1] 1
+## 
+## $b
+## [1] 2
+## 
+## $c
+## [1] 3</code></pre>
+<p>用函数<code>unlist()</code>，可将一个列表强制转换成一个向量。该函数基本上对所有列表 成分进行转换，并把它们存储在一个类型兼容的向量中：</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="kw">unlist</span>(l3)</span></code></pre></div>
+<pre><code>## a b c 
+## 1 2 3</code></pre>
+<p>若对一个混合了数值和文本的列表进行去列表化（<code>unlist</code>），则每个成分都会被 转换为其所能转换成的最近类型（<code>closest type</code>）：</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>l4 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>, <span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="st">"hello"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2"></a><span class="kw">unlist</span>(l4)</span></code></pre></div>
+<pre><code>##       a       b       c 
+##     "1"     "2" "hello"</code></pre>
+<p>注： 这里的<code>l4$a</code> 和<code>l4$b</code>都是数值，可以被转换为字符向量；但是，<code>l4$c</code> 是字符向量，无法被转换为数值。因此，能够兼容这些元素的最近类型就是字符向量。</p>
+<p>函数 summary() 可以查看列表的汇总信息：</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">summary</span>(l0)</span></code></pre></div>
+<pre><code>##      Length Class  Mode     
+## [1,] 1      -none- numeric  
+## [2,] 2      -none- logical  
+## [3,] 3      -none- character</code></pre>
+<h2 id="数据框数据表">数据框（数据表）</h2>
+<p>R语言中做统计分析的样本数据，都是按数据框类型操作的。</p>
+<p>数据框是指有若干行和列的数据集，它与矩阵类似，但并不要求所有列都是相同 的类型；本质上讲，数据框就是一个列表，它的每个成分都是一个向量，并且长 度相同，以表格的形式展现。总之，数据框是由列向量组成、有着矩阵形式的列 表。</p>
+<p>数据框与最常见的数据表是一致的：每一列代表一个变量属性，每一行代表一条 样本数据：</p>
+<p>R 中自带的数据框是 <code>data.frame</code>，建议改用更现代的数据框：<code>tibble</code> Hadley 在 <code>tibble</code> 包中引入一种 <code>tibble</code> 数据框，以代替 <code>data.frame</code>；而且 <code>tidyverse</code> 包都是基于 <code>tibble</code> 数据框。 <code>tibble</code> 比 <code>data.frame</code> 的优势： - <code>tibble()</code> 比 <code>data.frame()</code> 做的更少：不改变输入变量的类型（不会默认将字 符串转化为因子！），不会改变变量名，不会创建行名； - <code>tibble</code> 对象的列名可以是 <code>R</code> 中的“非法名”：非字母开头、包含空格，但定义 和使用变量时都需要用倒引号 <code>括起来； -</code>tibble<code>在输出时不自动显示所有行，避免大数据框时显示很多内容； 用</code>[]<code>选取列子集时，即使仅取一列，返回结果仍是</code>tibble`，而不是向量。</p>
+<h3 id="创建数据框">创建数据框</h3>
+<h4 id="用-tibble-根据若干列向量创建-tibble">用 <code>tibble()</code> 根据若干列向量创建 <code>tibble</code></h4>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb37-2"><a href="#cb37-2"></a>persons &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb37-3"><a href="#cb37-3"></a> <span class="dt">Name =</span> <span class="kw">c</span>(<span class="st">"Ken"</span>, <span class="st">"Ashley"</span>, <span class="st">"Jennifer"</span>),</span>
+<span id="cb37-4"><a href="#cb37-4"></a> <span class="dt">Gender =</span> <span class="kw">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Female"</span>),</span>
+<span id="cb37-5"><a href="#cb37-5"></a> <span class="dt">Age =</span> <span class="kw">c</span>(<span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">23</span>),</span>
+<span id="cb37-6"><a href="#cb37-6"></a> <span class="dt">Major =</span> <span class="kw">c</span>(<span class="st">"Finance"</span>, <span class="st">"Statistics"</span>, <span class="st">"Computer Science"</span>))</span>
+<span id="cb37-7"><a href="#cb37-7"></a>persons</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   Name     Gender   Age Major           
+##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;           
+## 1 Ken      Male      24 Finance         
+## 2 Ashley   Female    25 Statistics      
+## 3 Jennifer Female    23 Computer Science</code></pre>
+<h4 id="用-tribble按行录入数据式创建-tibble">用 <code>tribble()</code>按行录入数据式创建 <code>tibble</code></h4>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="kw">tribble</span>(</span>
+<span id="cb39-2"><a href="#cb39-2"></a> <span class="op">~</span>Name, <span class="op">~</span>Gender, <span class="op">~</span>Age, <span class="op">~</span>Major,</span>
+<span id="cb39-3"><a href="#cb39-3"></a> <span class="st">"Ken"</span>, <span class="st">"Male"</span>, <span class="dv">24</span>, <span class="st">"Finance"</span>,</span>
+<span id="cb39-4"><a href="#cb39-4"></a> <span class="st">"Ashley"</span>, <span class="st">"Female"</span>, <span class="dv">25</span>, <span class="st">"Statistics"</span>,</span>
+<span id="cb39-5"><a href="#cb39-5"></a> <span class="st">"Jennifer"</span>, <span class="st">"Female"</span>, <span class="dv">23</span>, <span class="st">"Computer Science"</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   Name     Gender   Age Major           
+##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;           
+## 1 Ken      Male      24 Finance         
+## 2 Ashley   Female    25 Statistics      
+## 3 Jennifer Female    23 Computer Science</code></pre>
+<h4 id="用-as_tibble-将-data.frame-list-matrix-转换为-tibble">用 <code>as_tibble()</code> 将 <code>data.frame</code>, <code>list</code>, <code>matrix</code> 转换为 <code>tibble</code></h4>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="kw">as_tibble</span>(iris)</span></code></pre></div>
+<pre><code>## # A tibble: 150 x 5
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##           &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+##  1          5.1         3.5          1.4         0.2 setosa 
+##  2          4.9         3            1.4         0.2 setosa 
+##  3          4.7         3.2          1.3         0.2 setosa 
+##  4          4.6         3.1          1.5         0.2 setosa 
+##  5          5           3.6          1.4         0.2 setosa 
+##  6          5.4         3.9          1.7         0.4 setosa 
+##  7          4.6         3.4          1.4         0.3 setosa 
+##  8          5           3.4          1.5         0.2 setosa 
+##  9          4.4         2.9          1.4         0.2 setosa 
+## 10          4.9         3.1          1.5         0.1 setosa 
+## # ... with 140 more rows</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>l1 &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="kw">as_tibble</span>(l1)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##       x y    
+##   &lt;dbl&gt; &lt;chr&gt;
+## 1     1 a    
+## 2     2 b    
+## 3     3 c</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>), <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="kw">as_tibble</span>(m1)</span></code></pre></div>
+<pre><code>## Warning: The `x` argument of `as_tibble.matrix()` must have column names if `.name_repair` is omitted as of tibble 2.0.0.
+## Using compatibility `.name_repair`.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.
+
+## # A tibble: 3 x 3
+##      V1    V2    V3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     4     7
+## 2     2     5     8
+## 3     3     6     9</code></pre>
+<p>数据框既是列表的特例，也是矩阵的推广，因此访问这两类对象的方式都适用于 数据框。例如与矩阵类似，对数据框的行列重新命名：</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>df1 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">id =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">-1</span>), </span>
+<span id="cb47-2"><a href="#cb47-2"></a> <span class="dt">y =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>))</span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="kw">colnames</span>(df1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"id"</span>, <span class="st">"level"</span>, <span class="st">"score"</span>)</span>
+<span id="cb47-4"><a href="#cb47-4"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##      id level score
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     0   0.5
+## 2     2     2   0.2
+## 3     3     1   0.1
+## 4     4    -1   0.5</code></pre>
+<p>另外，可用 <code>names()</code> 查看或修改数据框的列名</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="kw">names</span>(df1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="st">"z"</span>)</span>
+<span id="cb49-2"><a href="#cb49-2"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##       x     y     z
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     0   0.5
+## 2     2     2   0.2
+## 3     3     1   0.1
+## 4     4    -1   0.5</code></pre>
+<h3 id="提取数据框的元素子集">提取数据框的元素、子集</h3>
+<p>数据框是由列向量组成、有着矩阵形式的列表，所以可以用两种操作方式来访问 数据框的元素和子集。</p>
+<h4 id="以列表方式提取数据框的元素子集">以列表方式提取数据框的元素、子集</h4>
+<p>若把数据框看作是由向量组成的列表，则可以沿用列表的操作方式来提取元素或 构建子集。例如，可以用 <code>$</code> 按列名来提取某一列的值，或者用 <code>[[]]</code> 按照位置提 取。</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>df1<span class="op">$</span>x <span class="co"># 同df1[[1]]</span></span></code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<p>以列表形式构建子集完全适用于数据框，同时也会生成一个新的数据框。提取子 集的操作符<code>[]</code>允许用数值向量表示列的位置，用字符向量表示列名，或用逻辑向 量指定是否选择。</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>df1[<span class="dv">1</span>] <span class="co"># 同df1["x"]</span></span></code></pre></div>
+<pre><code>## # A tibble: 4 x 1
+##       x
+##   &lt;int&gt;
+## 1     1
+## 2     2
+## 3     3
+## 4     4</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>df1[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co"># 同df1[c("x", "y")]</span></span></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##       x     y
+##   &lt;int&gt; &lt;dbl&gt;
+## 1     1     0
+## 2     2     2
+## 3     3     1
+## 4     4    -1</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>df1[<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)]</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##       x     z
+##   &lt;int&gt; &lt;dbl&gt;
+## 1     1   0.5
+## 2     2   0.2
+## 3     3   0.1
+## 4     4   0.5</code></pre>
+<h4 id="以矩阵方式提取数据框的元素子集">以矩阵方式提取数据框的元素、子集</h4>
+<p>以列表形式操作并不支持行选择。以矩阵形式操作更加灵活，若将数据框看作矩 阵，其二维形式的存取器可以很容易地获取一个子集的元素，同时支持列选择和 行选择。 换句话说，可以使用<code>[i, j]</code>指定行或列来提取数据框子集，<code>[ , ]</code>内可以是数值向 量、字符向量或者逻辑向量。</p>
+<p>选择列：</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>df1[, <span class="st">"x"</span>]</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 1
+##       x
+##   &lt;int&gt;
+## 1     1
+## 2     2
+## 3     3
+## 4     4</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>df1[, <span class="kw">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)] <span class="co"># 同df1[, 1:2]</span></span></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##       x     y
+##   &lt;int&gt; &lt;dbl&gt;
+## 1     1     0
+## 2     2     2
+## 3     3     1
+## 4     4    -1</code></pre>
+<p>选择行：</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>df1[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##       x     y     z
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     0   0.5
+## 2     2     2   0.2
+## 3     3     1   0.1</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>df1[<span class="kw">c</span>(<span class="st">"c"</span>, <span class="st">"a"</span>),]</span></code></pre></div>
+<pre><code>## Warning: The `i` argument of ``[.tbl_df`()` must use valid row names as of tibble 3.0.0.
+## Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.
+
+## # A tibble: 2 x 3
+##       x     y     z
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    NA    NA    NA
+## 2    NA    NA    NA</code></pre>
+<p>同时选择行和列：</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>df1[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="st">"y"</span>]</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 1
+##       y
+##   &lt;dbl&gt;
+## 1     0
+## 2     2
+## 3     1</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>df1[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="kw">c</span>(<span class="st">"x"</span>, <span class="st">"z"</span>)]</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##       x     z
+##   &lt;int&gt; &lt;dbl&gt;
+## 1     1   0.5
+## 2     2   0.2
+## 3     3   0.1</code></pre>
+<p>根据条件筛选数据 例如用 z &gt;= 0.5 筛选 df1 的行，并选择 x 和 y 两列：</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>df1<span class="op">$</span>z <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.5</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a>df1[df1<span class="op">$</span>z <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.5</span>, <span class="kw">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)]</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##       x     y
+##   &lt;int&gt; &lt;dbl&gt;
+## 1     1     0
+## 2     4    -1</code></pre>
+<p>按行名属于集合 {a, d, e} 来筛选 df1 的行，并选择 x 和 y 两列：</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>ind &lt;-<span class="st"> </span><span class="kw">names</span>(df1) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"x"</span>, <span class="st">"z"</span>, <span class="st">"w"</span>)</span>
+<span id="cb75-2"><a href="#cb75-2"></a>df1[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, ind]</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##       x     z
+##   &lt;int&gt; &lt;dbl&gt;
+## 1     1   0.5
+## 2     2   0.2</code></pre>
+<h3 id="给数据框赋值">给数据框赋值</h3>
+<p>给数据框赋值，就是选择要赋值的位置，再准备好同样大小且格式匹配的数据， 赋值给那些位置即可，所以同样有列表方式和矩阵方式。 #### 以列表方式给数据框赋值 用 <code>$</code> 或 <code>[[ ]]</code> 对数据框的 1 列赋值</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a>df1<span class="op">$</span>z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.6</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>) </span>
+<span id="cb77-2"><a href="#cb77-2"></a><span class="co"># 同d1[["z"]] &lt;- c(0.4, 0.5, 0.2, 0.8)</span></span>
+<span id="cb77-3"><a href="#cb77-3"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##       x     y     z
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     0   0.6
+## 2     2     2   0.3
+## 3     3     1   0.2
+## 4     4    -1   0.4</code></pre>
+<p>利用现有列，创建 (计算) 新列：</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>df1<span class="op">$</span>w &lt;-<span class="st"> </span>df1<span class="op">$</span>y <span class="op">+</span><span class="st"> </span>df1<span class="op">$</span>z </span>
+<span id="cb79-2"><a href="#cb79-2"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##       x     y     z     w
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     0   0.6   0.6
+## 2     2     2   0.3   2.3
+## 3     3     1   0.2   1.2
+## 4     4    -1   0.4  -0.6</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>df1<span class="op">$</span>w &lt;-<span class="st"> </span><span class="kw">as.character</span>(df1<span class="op">$</span>w) <span class="co"># 转换列的类型</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##       x     y     z w    
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1     0   0.6 0.6  
+## 2     2     2   0.3 2.3  
+## 3     3     1   0.2 1.2  
+## 4     4    -1   0.4 -0.6</code></pre>
+<p>用 <code>[]</code> 可以对数据框的 1 列或多列进行赋值：</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>df1[<span class="st">"z"</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>)</span>
+<span id="cb83-2"><a href="#cb83-2"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##       x     y     z w    
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1     0   0.8 0.6  
+## 2     2     2   0.5 2.3  
+## 3     3     1   0.2 1.2  
+## 4     4    -1   0.4 -0.6</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a>df1[<span class="kw">c</span>(<span class="st">"y"</span>, <span class="st">"z"</span>)] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">level =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>), </span>
+<span id="cb85-2"><a href="#cb85-2"></a> <span class="dt">score =</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>))</span>
+<span id="cb85-3"><a href="#cb85-3"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##       x     y     z w    
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1     1   0.1 0.6  
+## 2     2     2   0.2 2.3  
+## 3     3     1   0.3 1.2  
+## 4     4     0   0.4 -0.6</code></pre>
+<h4 id="以矩阵方式给数据框赋值">以矩阵方式给数据框赋值</h4>
+<p>以列表方式对数据框进行赋值时，也是只能访问列。若需要更加灵活地进行赋值 操作，可以以矩阵方式进行。</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a>df1[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="st">"y"</span>] &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb87-2"><a href="#cb87-2"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##       x     y     z w    
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1    -1   0.1 0.6  
+## 2     2     0   0.2 2.3  
+## 3     3     1   0.3 1.2  
+## 4     4     0   0.4 -0.6</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a>df1[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="kw">c</span>(<span class="st">"y"</span>, <span class="st">"z"</span>)] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">level =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb89-2"><a href="#cb89-2"></a> <span class="dt">score =</span> <span class="kw">c</span>(<span class="fl">0.9</span>, <span class="fl">1.0</span>))</span>
+<span id="cb89-3"><a href="#cb89-3"></a>df1</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##       x     y     z w    
+##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1     0   0.9 0.6  
+## 2     2     0   1   2.3  
+## 3     3     1   0.3 1.2  
+## 4     4     0   0.4 -0.6</code></pre>
+<p>###一些有用函数 #### <code>str()</code> 该函数作用在 R 对象上，显示该对象的结构：</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="kw">str</span>(persons)</span></code></pre></div>
+<pre><code>## tibble [3 x 4] (S3: tbl_df/tbl/data.frame)
+##  $ Name  : chr [1:3] "Ken" "Ashley" "Jennifer"
+##  $ Gender: chr [1:3] "Male" "Female" "Female"
+##  $ Age   : num [1:3] 24 25 23
+##  $ Major : chr [1:3] "Finance" "Statistics" "Computer Science"</code></pre>
+<h4 id="summary"><code>summary()</code></h4>
+<p>该函数作用在数据框上，将生成一个汇总表来显示每一列的情况：</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="kw">summary</span>(persons)</span></code></pre></div>
+<pre><code>##      Name              Gender               Age          Major          
+##  Length:3           Length:3           Min.   :23.0   Length:3          
+##  Class :character   Class :character   1st Qu.:23.5   Class :character  
+##  Mode  :character   Mode  :character   Median :24.0   Mode  :character  
+##                                        Mean   :24.0                     
+##                                        3rd Qu.:24.5                     
+##                                        Max.   :25.0</code></pre>
+<h4 id="rbind-和-cbind"><code>rbind()</code> 和 <code>cbind()</code></h4>
+<p>经常需要将多个数据框（或矩阵）按行或按列进行合并 用函数 <code>rbind()</code>，增加行（样本数据），要求宽度（列数）相同； 用函数 <code>cbind()</code>，增加列（属性变量），要求高度（行数）相同。 例如，向数据框 persons 数据框中添加一个人的新记录：</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="kw">rbind</span>(persons, <span class="kw">tibble</span>(<span class="dt">Name=</span><span class="st">"John"</span>, <span class="dt">Gender=</span><span class="st">"Male"</span>, </span>
+<span id="cb95-2"><a href="#cb95-2"></a> <span class="dt">Age=</span><span class="dv">25</span>, <span class="dt">Major=</span><span class="st">"Statistics"</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 4
+##   Name     Gender   Age Major           
+##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;           
+## 1 Ken      Male      24 Finance         
+## 2 Ashley   Female    25 Statistics      
+## 3 Jennifer Female    23 Computer Science
+## 4 John     Male      25 Statistics</code></pre>
+<p>向 persons 数据框中添加两个新列表示每个人是否已注册和其手头的项目数量：</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="kw">cbind</span>(persons, <span class="dt">Registered=</span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>), </span>
+<span id="cb97-2"><a href="#cb97-2"></a> <span class="dt">Projects=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>##       Name Gender Age            Major Registered Projects
+## 1      Ken   Male  24          Finance       TRUE        3
+## 2   Ashley Female  25       Statistics       TRUE        2
+## 3 Jennifer Female  23 Computer Science      FALSE        3</code></pre>
+<p>注意： <code>rbind()</code> 和 <code>cbind()</code>不会修改原始数据，而是生成一个添加了行或列的新数据框。</p>
+<blockquote>
+<p>更建议用 <code>dplyr</code>包中的<code>bind_rows()</code>和<code>bind_cols()</code></p>
+</blockquote>
+<h4 id="expand.grid"><code>expand.grid()</code></h4>
+<p>该函数可生成多个属性水平值所有组合（笛卡尔积）的数据框：</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="kw">expand.grid</span>(<span class="dt">type=</span><span class="kw">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="dt">class=</span><span class="kw">c</span>(<span class="st">"M"</span>, <span class="st">"L"</span>, <span class="st">"XL"</span>))</span></code></pre></div>
+<pre><code>##   type class
+## 1    A     M
+## 2    B     M
+## 3    A     L
+## 4    B     L
+## 5    A    XL
+## 6    B    XL</code></pre>
+<h2 id="因子factor">因子（factor）</h2>
+<p>变量分为离散/分类型、连续/数值型（通常的数值变量，可带小数位）；分类型 变量又分为：名义型（无顺序好坏之分的分类变量，如性别）、有序型（有顺序 好坏之分的分类变量，如疗效）。</p>
+<p>名义型和有序型的分类变量，在 R 语言中称为因子，因子本质上是一个带有水平 （level）属性的整数向量，其中“水平”是指事前确定可能取值的有限集合。</p>
+<p>因子提供了一个简单且紧凑的形式来处理分类数据，因子用水平来表示所有可能 的取值，例如，性别有两个水平：男、女。</p>
+<h3 id="创建因子">创建因子</h3>
+<h4 id="用函数-factor-创建因子其基本格式为">用函数 factor() 创建因子，其基本格式为：</h4>
+<pre><code>factor(x, levels, labels, exclude, ordered, nmax, ...)
+其中，
+x：为创建因子的数据向量；
+levels：指定因子的各水平值，默认为 x 中不重复的所有值；
+labels：设置各水平名称（前缀），与水平一一对应；
+exclude：指定有哪些水平是不需要的（设为NA）；
+ordered：设置是否对因子水平排序，默认 FALSE 为无序因子, TRUE 为有序因子；
+nmax：设定水平数的上限。</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"男"</span>, <span class="st">"女"</span>, <span class="st">"男"</span>, <span class="st">"男"</span>, <span class="st">"女"</span>)</span>
+<span id="cb102-2"><a href="#cb102-2"></a>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(x)</span>
+<span id="cb102-3"><a href="#cb102-3"></a>sex</span></code></pre></div>
+<pre><code>## [1] 男 女 男 男 女
+## Levels: 男 女</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="kw">attributes</span>(sex)</span></code></pre></div>
+<pre><code>## $levels
+## [1] "男" "女"
+## 
+## $class
+## [1] "factor"</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="kw">levels</span>(sex) <span class="co"># 访问水平值属性</span></span></code></pre></div>
+<pre><code>## [1] "男" "女"</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="kw">class</span>(sex) </span></code></pre></div>
+<pre><code>## [1] "factor"</code></pre>
+<h4 id="用-gl-生成有规律的水平值组合因子">用 gl() 生成有规律的水平值组合因子</h4>
+<p>对于多因素试验设计，用该函数可以生成多个因素完全组合，基本格式为：</p>
+<pre><code>gl(n, k, length=n*k, labels, ordered=FALSE)
+其中，
+n：为因子水平个数；
+k：为同一因子水平连续重复次数；
+length：为总的元素个数，默认为 n * k, 若不够则自动重复；
+labels：设置因子水平值；
+ordered：设置是否为有序。</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a><span class="kw">data.frame</span>(</span>
+<span id="cb111-2"><a href="#cb111-2"></a> <span class="dt">Sex =</span> <span class="kw">gl</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">12</span>, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">"男"</span>, <span class="st">"女"</span>)),</span>
+<span id="cb111-3"><a href="#cb111-3"></a> <span class="dt">Class =</span> <span class="kw">gl</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dt">length=</span><span class="dv">12</span>, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">"甲"</span>, <span class="st">"乙"</span>, <span class="st">"丙"</span>)),</span>
+<span id="cb111-4"><a href="#cb111-4"></a> <span class="dt">Score =</span> <span class="kw">gl</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dt">length=</span><span class="dv">12</span>, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">"优"</span>, <span class="st">"良"</span>, <span class="st">"中"</span>, <span class="st">"及格"</span>)))</span></code></pre></div>
+<pre><code>##    Sex Class Score
+## 1   男    甲    优
+## 2   男    甲    优
+## 3   男    乙    优
+## 4   女    乙    良
+## 5   女    丙    良
+## 6   女    丙    良
+## 7   男    甲    中
+## 8   男    甲    中
+## 9   男    乙    中
+## 10  女    乙  及格
+## 11  女    丙  及格
+## 12  女    丙  及格</code></pre>
+<h3 id="使用因子">使用因子</h3>
+<p>R中因子是以整数型向量存储的，每个因子水平对应一个整数型的数。对字符型 向量创建的因子，可以指定因子水平顺序，否则默认会按照字母顺序，再对应到 整数型向量。<br>
+&gt;注意： 不能直接将因子数据当字符型操作，需要用 as.character() 转化。</p>
+<p>考虑用一个变量存储字符串型的月份：</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span></code></pre></div>
+<p>这有两个问题： - 实际只需要12个月份值，对拼写错误也无能为力； - 不会按照想要的方式排序：</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="kw">sort</span>(x1)</span></code></pre></div>
+<pre><code>## [1] "Apr" "Dec" "Jan" "Mar"</code></pre>
+<p>若改用因子型就能避免上述问题。创建因子型，首先要创建一个有效的“水平值” 列表：</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a>month_levels &lt;-<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb116-2"><a href="#cb116-2"></a><span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
+<span id="cb116-3"><a href="#cb116-3"></a> <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span></span>
+<span id="cb116-4"><a href="#cb116-4"></a>)</span></code></pre></div>
+<p>再来创建因子：</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a>y1 &lt;-<span class="st"> </span><span class="kw">factor</span>(x1, <span class="dt">levels =</span> month_levels)</span>
+<span id="cb117-2"><a href="#cb117-2"></a>y1</span></code></pre></div>
+<pre><code>## [1] Dec Apr Jan Mar
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="kw">sort</span>(y1)</span></code></pre></div>
+<pre><code>## [1] Jan Mar Apr Dec
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
+<p>并且任何不在水平集中的值都将转化为 NA：</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a>x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jam"</span>, <span class="st">"Mar"</span>)</span>
+<span id="cb121-2"><a href="#cb121-2"></a>y2 &lt;-<span class="st"> </span><span class="kw">factor</span>(x2, <span class="dt">levels =</span> month_levels)</span>
+<span id="cb121-3"><a href="#cb121-3"></a>y2</span></code></pre></div>
+<pre><code>## [1] Dec  Apr  &lt;NA&gt; Mar 
+## Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</code></pre>
+<p>有时候你可能更希望让水平的顺序与其在数据集中首次出现的次序相匹配，设置 <code>levels=unique(x)</code> 即可，或者用管道操作在其后增加 <code>fct_inorder()</code>:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a>f1 &lt;-<span class="st"> </span><span class="kw">factor</span>(x1, <span class="dt">levels =</span> <span class="kw">unique</span>(x1))</span>
+<span id="cb123-2"><a href="#cb123-2"></a>f1</span></code></pre></div>
+<pre><code>## [1] Dec Apr Jan Mar
+## Levels: Dec Apr Jan Mar</code></pre>
+<h3 id="有用函数">有用函数</h3>
+<h4 id="table"><code>table()</code></h4>
+<p>该函数可以统计因子各水平的出现次数（频数），也可以统计向量中每个不同元 素的出现次数，返回结果为命名向量。</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="kw">table</span>(sex)</span></code></pre></div>
+<pre><code>## sex
+## 男 女 
+##  3  2</code></pre>
+<h4 id="cut"><code>cut()</code></h4>
+<p>该函数可以用来做连续变量离散化：将数值向量切分为若干区间段，返回因子。 基本格式为：</p>
+<pre><code>cut(x, breaks, labels, ...)
+其中，x：为要切分的数值向量；
+breaks：切分的界限值构成的向量，或表示切分段数的整数</code></pre>
+<blockquote>
+<p>注： 该函数还有其它参数 <code>right</code> 设置区间段是否左开右闭, <code>include.lowest</code> 设置是否包含下界，<code>ordered_result</code> 设置是否对结果因子排序。</p>
+</blockquote>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a>Age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">23</span>, <span class="dv">15</span>, <span class="dv">36</span>, <span class="dv">47</span>, <span class="dv">65</span>, <span class="dv">53</span>)</span>
+<span id="cb128-2"><a href="#cb128-2"></a><span class="kw">cut</span>(Age, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">18</span>, <span class="dv">45</span>, <span class="dv">100</span>), </span>
+<span id="cb128-3"><a href="#cb128-3"></a> <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">"Young"</span>, <span class="st">"Middle"</span>, <span class="st">"Old"</span>))</span></code></pre></div>
+<pre><code>## [1] Middle Young  Middle Old    Old    Old   
+## Levels: Young Middle Old</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">王芍</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://wangshao0818.com/posts/734154334/">https://wangshao0818.com/posts/734154334/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">王芍</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">
+                                    <span class="chip bg-color">数据科学</span>
+                                </a>
+                            
+                                <a href="/tags/R%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">R语言</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/734154334/">
+                    <div class="card-image">
+                        
+                        <img src="https://gitee.com/shao818/Figure/raw/master/null/data-science.png" class="responsive-img" alt="数据科学">
+                        
+                        <span class="card-title">数据科学</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" class="post-category">
+                                    数据科学
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/R%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    R语言
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">
+                        <span class="chip bg-color">数据科学</span>
+                    </a>
+                    
+                    <a href="/tags/R%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">R语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/3709481002/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="GDP分析手册">
+                        
+                        <span class="card-title">GDP分析手册</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E/" class="post-category">
+                                    宏观经济
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BB%8F%E6%B5%8E%E6%8C%87%E6%A0%87/">
+                        <span class="chip bg-color">经济指标</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2020</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">王芍</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">37.5k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Shao818" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:772722605@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=772722605" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 772722605" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://github.com/Shao818" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://github.com/Shao818" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+
+    <a href="https://www.cnblogs.com/shao818/" class="tooltipped" target="_blank" data-tooltip="关注我的博客园: https://www.cnblogs.com/shao818/" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">博</i>
+    </a>
+
+
+    <a href="https://gitee.com/shao818/Figure/raw/master/null/微信图片_20201130214839.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://gitee.com/shao818/Figure/raw/master/null/微信图片_20201130214839.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/js/FunnyTitle.js"></script>
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
