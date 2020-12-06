@@ -516,30 +516,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="stata手动各类匹配方法大全-a理论篇">Stata手动：各类匹配方法大全 A——理论篇</h1>
+                <h1 id="倾向得分匹配法psm">倾向得分匹配法（PSM）</h1>
+<h2 id="stata手动各类匹配方法大全-a理论篇">Stata手动：各类匹配方法大全 A——理论篇</h2>
 <blockquote>
 <p>匹配是研究处理效应的常见工具，本文总结了常见的匹配方法，并在第三部分给出 Stata 模拟以比较不同的匹配方法的优劣。</p>
 </blockquote>
-<h2 id="单变量匹配-uni-variate-match">单变量匹配 uni-variate match</h2>
+<h3 id="单变量匹配-uni-variate-match">单变量匹配 uni-variate match</h3>
 <p>单变量匹配的方法有精确匹配、粗糙精确匹配，k-近邻匹配和半径 (卡尺) 匹配。</p>
-<h3 id="精确匹配-exact-match">精确匹配 exact match</h3>
+<h4 id="精确匹配-exact-match">精确匹配 exact match</h4>
 <p>顾名思义，当且仅当两个观测值的匹配变量相等时匹配成功。</p>
-<h3 id="粗糙精确匹配-coarsened-exact-match">粗糙精确匹配 coarsened exact match</h3>
+<h4 id="粗糙精确匹配-coarsened-exact-match">粗糙精确匹配 coarsened exact match</h4>
 <p>粗糙精确匹配用途广泛，通常要求匹配变量是分类变量。比如公司金融中同行业的公司，又比如教育经济学中在同一个班的同学。粗糙精确匹配可以轻松的推广到多变量匹配的情形，如同行业同年度的公司，同班同性别的同学。</p>
-<h3 id="k-近邻匹配-k-nearest-neighbor-match">k-近邻匹配 k-nearest neighbor match</h3>
+<h4 id="k-近邻匹配-k-nearest-neighbor-match">k-近邻匹配 k-nearest neighbor match</h4>
 <p>k-近邻匹配要求匹配变量是距离，它选取距离最近的 k 个观测值作为对照组。</p>
-<h3 id="radius-caliper-match">radius (caliper) match</h3>
+<h4 id="radius-caliper-match">radius (caliper) match</h4>
 <p>半径 (卡尺) 匹配要求匹配变量也是距离，它事先设定半径 (上下半径可以不同)，找出设定范围内的全部观测值作为对照组。显然，随着半径的降低，匹配要求也更趋严格。</p>
-<h2 id="多变量匹配-multi-variate-match">多变量匹配 multi-variate match</h2>
+<h3 id="多变量匹配-multi-variate-match">多变量匹配 multi-variate match</h3>
 <p>多变量匹配的核心思路是降维 (dimension reduction)，将多变量降维为距离或得分，然后再运用单变量匹配的方法。多变量匹配的方法有欧氏距离、百分等级、马氏距离和倾向得分匹配等。</p>
 <p>为能直观的图示，下文全部示例仅考虑双变量 (平面) 的情形。</p>
-<h3 id="欧氏距离匹配-euclidean-distance-match">欧氏距离匹配 euclidean distance match</h3>
+<h4 id="欧氏距离匹配-euclidean-distance-match">欧氏距离匹配 euclidean distance match</h4>
 <p>最简单的测度空间就是欧氏距离空间。你可以轻松的用尺子直接量出点到原点、或任意两点之间的距离。</p>
 <p>平面上任意点<span class="math inline">\(X=\left(X_{1}, X_{2}, \cdots, X_{n}\right)\)</span>到原点的距离公式为：</p>
 <p><span class="math display">\[d_{e}(X)=\sqrt{X_{1}^{2}+X_{2}^{2}+\cdots+X_{n}^{2}}\]</span></p>
 <p>平面上任意两点<span class="math inline">\(X=\left(X_{1}, X_{2}, \cdots, X_{n}\right)\)</span>和<span class="math inline">\(Y=\left(Y_{1}, Y_{2}, \cdots, Y_{n}\right)\)</span>之间的距离公式为： <span class="math display">\[d_{e}(X, Y)=\sqrt{\left(X_{1}-Y_{1}\right)^{2}+\left(X_{2}-Y_{2}\right)^{2}+\cdots+\left(X_{n}-Y_{n}\right)^{2}}\]</span> 在欧式距离空间中，坐标轴之间是相互垂直的，也就意味着随机变量之间的相关系数为零。这是一个非常强的假设，而实际研究中该假设往往不能成立。比如研究一个人的健康时，作为影响因素的身高和体重之间往往是正相关的。</p>
 <p><font color="red"> 在欧式距离空间中，坐标轴上的量纲也是默认相同的，也就意味着随机变量必须有相同的量纲。这同样是一个过于严苛的假设。同样是研究一个人的健康，身高的单位是厘米，体重的单位是公斤，无论如何长度单位和重量单位是不可比的。</font></p>
-<h3 id="马氏距离匹配-mahalanobis-distance-match">马氏距离匹配 mahalanobis distance match</h3>
+<h4 id="马氏距离匹配-mahalanobis-distance-match">马氏距离匹配 mahalanobis distance match</h4>
 <p>为了克服匹配时欧氏距离空间的上述两个缺陷，印度数学家 Mahalanobis 提出了著名的马氏距离空间。马氏距离对多匹配变量的联合分布的位置、形状做了标准化调整，也对多匹配变量之间的相关性做了正交化调整，从而将多匹配变量的联合分布转变为可以用欧氏距离计算的情形。</p>
 <p>马氏距离实现上述功能的关键在于用协方差矩阵的逆矩阵做了调整。我们将在第三部分用 Stata 代码逐步展示它。任意点<span class="math inline">\(\vec{x}\)</span>到质心 (centroid) 的距离公式如下：</p>
 <p><span class="math display">\[d_{m}(\vec{x})=\sqrt{(\vec{x}-\vec{c})^{\prime} \operatorname{Cov}^{-1}(\vec{x}-\vec{c})}\]</span></p>
@@ -547,7 +548,7 @@
 <p><span class="math display">\[d_{m}\left(\vec{x}_{1}, \vec{x}_{2}\right)=\sqrt{\left(\vec{x}_{1}-\vec{x}_{2}\right)^{\prime} \operatorname{Cov}^{-1}\left(\vec{x}_{1}-\vec{x}_{2}\right)}\]</span></p>
 <p>其中<span class="math inline">\(\operatorname{Cov}\)</span>为多维随机变量的样本协方差矩阵，<span class="math inline">\(c\)</span>是质心或样本均值。若样本协方差矩阵是单位矩阵 (各维度之间独立同部分)，马氏距离退化为欧氏距离。</p>
 <p>马氏距离测量相对于质心的距离，质心是一个基准点或中心点，可以认为是多元数据的总体平均值。质心是多元空间中所有变量的均值相交的点。马氏距离越大，数据点离质心越远。</p>
-<h3 id="百分等级匹配-percentile-rank-match">百分等级匹配 percentile rank match</h3>
+<h4 id="百分等级匹配-percentile-rank-match">百分等级匹配 percentile rank match</h4>
 <p>在多随机变量的联合分布中，距离近的点在概率分布函数 (PDF) 上往往不一定靠近。我们以如下标准正态分布 (钟形曲线) 为例,说明距离相近并不必然等于概率分布上的靠近。</p>
 <p>不妨设样本容量为10000。处理组观测值点 A 位于距离原点<span class="math inline">\(2\sigma\)</span>处。则<span class="math inline">\(- \sigma\)</span>的点B和<span class="math inline">\(-3 \sigma\)</span>处的点C与点A的距离相等，都等于 。但是点A与点B之间有1359(13.59%) 个观测值，而点A与点C之间仅有214(2.14 )个观测值。显然，尽管点A到点B和点C的距离是相等的，但从概率分布的角度来看在点A前后抽样更容易抽到点C。</p>
 <figure>
@@ -559,7 +560,7 @@
 <p>其中，<span class="math inline">\(PR\)</span>是百分等级，<span class="math inline">\(L\)</span>是距离小于该观测值距离的观测值数,<span class="math inline">\(E\)</span>是距离等于该观测值距离的观测值数，<span class="math inline">\(N\)</span>是样本数。例如，样本有100个同学参加考试，你的物理得分是85分，其中有60个人分数低于你，5个人的分数和你相同，则你的百分等级数就等于：</p>
 <p><span class="math display">\[\frac{60+0.5 \times 5}{100}=62.5 \%\]</span></p>
 <p>百分等级匹配就是选择百分等级最接近的观测值作为反事实观测值，显然它是一种非参数方法。基于距离的百分等级不仅克服了距离不能体现随机变量分布函数的特点 (比如距离很远的点也可能有相似的百分等级)，而且将匹配变量之间的差异限制在<span class="math inline">\([0,1]\)</span>区间。然而它仍有自己的局限，就是无法体现个体进入处理组的<strong>选择过程</strong>，或者说并没有利用到底哪些个体进入了处理组这个关键信息。</p>
-<h3 id="倾向得分匹配-propensity-score-match">倾向得分匹配 propensity score match</h3>
+<h4 id="倾向得分匹配-propensity-score-match">倾向得分匹配 propensity score match</h4>
 <p><font color="red"> 倾向得分匹配不是基于距离而是基于得分。</font>倾向得分 (propensity score) 是指个体 <span class="math inline">\(i\)</span> 在给定可观测变量<span class="math inline">\(x_{i}\)</span>的情况下进入处理组的条件概率。即<span class="math inline">\(p(x_{i})=Pr(D_{i}=1\mid x=x_{i})\)</span>，或简记为<span class="math inline">\(p_{x}\)</span>。</p>
 <p>对倾向得分的估计可使用参数估计或非参数估计，最流行的方法是<span class="math inline">\(logit\)</span>。Rosenbaum and Rubin (1983) 证明，如果可忽略性假定成立，则在给定倾向得分的情况下，结果变量在事前和事后的取值独立于是否个体进入处理组。</p>
 <p>使用倾向得分匹配需要满足两个假定：1.共同支撑假设；2.平衡性假定。</p>
@@ -572,9 +573,9 @@
 <p><span class="math display">\[\frac{\bar{x}^{t}-\bar{x}^{u}}{\sqrt{\left(s_{x}^{t}\right)^{2}+\left(s_{x}^{u}\right)^{2} / 2}}\]</span></p>
 <p><font color="red"> 经验法则告诉我们，标准化差距不得超过 10%。如果超过，则应重新估计倾向得分，或改变具体的匹配方法。<font color="red"></font></font></p><font color="red"><font color="red">
 <p>尽管倾向得分匹配体现了选择过程，但它仍有一些缺陷，比如它只能依可测变量选择，对共同支撑集有要求等。</p>
-<h2 id="代码展示">代码展示</h2>
+<h3 id="代码展示">代码展示</h3>
 <p>我们用简单的二维模拟数据来展示不同多变量匹配方法之间的差异。</p>
-<h3 id="数据生成过程">数据生成过程</h3>
+<h4 id="数据生成过程">数据生成过程</h4>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">clear
 qui  set obs 200
 qui gen id = _n
@@ -624,7 +625,7 @@ twoway (scatter x1 x2 if group == 0, mcolor(black))	///
 <div data-align="center">
 上图中，红色的点为处理组观测值，黑色的点为对照组观测值
 </div>
-<h3 id="欧氏距离匹配的结果">3.2 欧氏距离匹配的结果</h3>
+<h4 id="欧氏距离匹配的结果">欧氏距离匹配的结果</h4>
 <p>变量 <em>ec</em> 记录欧氏距离匹配得到的匹配值</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">gen ec = .
 gen ed = .
@@ -666,7 +667,7 @@ misstable sum ec ed	<span aria-hidden="true" class="line-numbers-rows"><span></s
 <figure>
 <img src="https://gitee.com/shao818/Figure/raw/master/null/image-20201206110317875.png" alt=""><figcaption>欧氏距离匹配的结果</figcaption>
 </figure>
-<h3 id="马氏距离匹配的结果">3.3 马氏距离匹配的结果</h3>
+<h4 id="马氏距离匹配的结果">马氏距离匹配的结果</h4>
 <p>变量 <em>mc</em> 记录马氏距离匹配得到的匹配值</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">corr x1 x2, cov
 mat cov = r(C)
@@ -714,7 +715,7 @@ x2  -.18694053   .77129752</code></pre>
 <figure>
 <img src="https://gitee.com/shao818/Figure/raw/master/null/image-20201206110442743.png" alt=""><figcaption>马氏距离匹配的结果</figcaption>
 </figure>
-<h3 id="倾向得分匹配的结果">3.4 倾向得分匹配的结果</h3>
+<h4 id="倾向得分匹配的结果">倾向得分匹配的结果</h4>
 <p>变量 <em>pc</em> 记录倾向得分匹配得到的匹配值</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">gen pc = .
 gen pd = .	
@@ -762,14 +763,14 @@ Log likelihood = -86.812732                     Pseudo R2         =     0.1661
 <figure>
 <img src="https://gitee.com/shao818/Figure/raw/master/null/image-20201206110656185.png" alt=""><figcaption>倾向得分匹配的结果</figcaption>
 </figure>
-<h2 id="参考文献和资料">参考文献和资料</h2>
+<h3 id="参考文献和资料">参考文献和资料</h3>
 <ul>
 <li>Mahalanobis Distance: Simple Definition, Examples link</li>
 <li>Mahalanobis, P. C. (1936). On the generalized distance in statistics. National Institute of Science of India. pdf</li>
 <li>Percentiles, Percentile Rank &amp; Percentile Range: Definition &amp; Examples link</li>
 <li>Rosenbaum, P. R., &amp; Rubin, D. B. (1983). The central role of the propensity score in observational studies for causal effects. <em>Biometrika</em>, <em>70</em>(1), 41-55. pdf</li>
 </ul>
-<h1 id="倾向得分匹配法的实现pscore">倾向得分匹配法的实现：<code>pscore</code></h1>
+<h2 id="倾向得分匹配法的实现pscore">倾向得分匹配法的实现：<code>pscore</code></h2>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">cd C:\Mirror\StataLearn\StataData
 use nswpsid.dta,clear
 *browse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -957,7 +958,7 @@ Note: the common support option has been selected</code></pre>
 <pre><code>******************************************* 
 End of the algorithm to estimate the pscore 
 ******************************************* </code></pre>
-<h2 id="方法一近邻匹配nearest-neighbor-matching">方法一：近邻匹配（nearest neighbor matching）</h2>
+<h3 id="方法一近邻匹配nearest-neighbor-matching">方法一：近邻匹配（nearest neighbor matching）</h3>
 <ul>
 <li>含义：最邻近匹配法是最常用的一种匹配方法，它把控制组中找到的与处理组个体倾向得分差异最小的个体，作为自己的比较对象 。</li>
 <li>优点：按处理个体找控制个体，所有处理个体都会配对成功，处理组的信息得以充分使用。</li>
@@ -1040,7 +1041,7 @@ n. treat.   n. contr.         ATT   Std. Err.           t
 ---------------------------------------------------------
 Note: the numbers of treated and controls refer to actual
 nearest neighbour matches</code></pre>
-<h2 id="方法二半径匹配radius-matching">方法二：半径匹配（radius matching）</h2>
+<h3 id="方法二半径匹配radius-matching">方法二：半径匹配（radius matching）</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">*半径匹配法是事先设定半径，找到所有设定半径范围内的单位圆中的控制样本，半径取值为正。随着半径的降低，匹配的要求越来越严。
 set seed 12345
 attr re78 treat $vars, comsup boot reps($breps) dots logit radius(0.001)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -1115,7 +1116,7 @@ n. treat.   n. contr.         ATT   Std. Err.           t
 ---------------------------------------------------------
 Note: the numbers of treated and controls refer to actual
 matches within radius</code></pre>
-<h2 id="方法三分层匹配stratification-matching">方法三：分层匹配（stratification matching）</h2>
+<h3 id="方法三分层匹配stratification-matching">方法三：分层匹配（stratification matching）</h3>
 <ul>
 <li>分层匹配法是根据估计的倾向得分将全部样本分块，使得每块的平均倾向得分在处理组和控制组中相等。</li>
 <li>优点：Cochrane,Chambers（1965）指出五个区就可以消除95%的与协变量相关的偏差。这个方法考虑到了样本的分层问题或聚类问题。 就是假定：每一层内的个体样本具有相关性，而各层之间的样本不具有相关性。</li>
@@ -1188,7 +1189,7 @@ n. treat.   n. contr.         ATT   Std. Err.           t
       185        1086    1436.141     988.567       1.453
 
 ---------------------------------------------------------</code></pre>
-<h2 id="方法四核匹配法kernel-matching">方法四：核匹配法（kernel matching）</h2>
+<h3 id="方法四核匹配法kernel-matching">方法四：核匹配法（kernel matching）</h3>
 <p>核匹配是一种非参数方法，通过构造一个虚拟对象来匹配处理组，构造的原则是对现有的控制变量做权重平均，权重的取值与处理组、控制组PS值差距呈反向相关关系。</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">**--基本命令--**
 
@@ -1262,7 +1263,7 @@ n. treat.   n. contr.         ATT   Std. Err.           t
       185        1086    1342.016    1023.717       1.311
 
 ---------------------------------------------------------</code></pre>
-<h2 id="方法五马氏距离">方法五：马氏距离</h2>
+<h3 id="方法五马氏距离">方法五：马氏距离</h3>
 <p>由于在倾向得分匹配第一阶段估计倾向得分时存在不确定性，Abadie and Imbens的相关研究又重新回到更简单的马氏距离，进行有放回且允许并列的k近邻匹配，针对非精确匹配一般存在偏差，提出了偏差校正的方法，通过回归的方法估计偏差，然后得到偏差校正匹配估计量。</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">**--基本命令--**
 nnmatch re78 treat $vars, m(4) tc(att) population  bias(bias) robust(4)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1282,10 +1283,10 @@ Matching variables:  age agesq educ educsq black hisp marr re74 re75 re74sq
         u74 u75 u74hisp nodegree
 Bias-adj variables:  age agesq educ educsq black hisp marr re74 re75 re74sq
         u74 u75 u74hisp nodegree</code></pre>
-<h1 id="倾向得分匹配法的实现psmatch2">倾向得分匹配法的实现：<code>psmatch2</code></h1>
+<h2 id="倾向得分匹配法的实现psmatch2">倾向得分匹配法的实现：<code>psmatch2</code></h2>
 <p>其实呢，psmatch2和pscore除了句法结构稍有不同之外，估计的结果等是完全相同的。</p>
 <p>我大致列一下命令，感兴趣的朋友可以自行尝试。</p>
-<h2 id="基本命令">基本命令</h2>
+<h3 id="基本命令">基本命令</h3>
 <p></p><pre class="line-numbers language-none"><code class="language-none">psmatch2 depvar [indepvars] [if exp] [in range] [, outcome(varlist) pscore(varname)
                      neighbor(integer) radius caliper(real) mahalanobis(varlist) ai(integer) population
                      altvariance kernel llr kerneltype(type) bwidth(real) spline nknots(integer) common
@@ -1377,7 +1378,7 @@ assignment | On suppor |     Total
    Treated |       185 |       185 
 -----------+-----------+----------
      Total |     2,675 |     2,675 </code></pre>
-<h2 id="近邻匹配">近邻匹配</h2>
+<h3 id="近邻匹配">近邻匹配</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2  treat $vars,out(re78) neighbor(2) ate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>Probit regression                               Number of obs     =      2,675
                                                 LR chi2(13)       =     940.49
@@ -1431,7 +1432,7 @@ assignment | On suppor |     Total
    Treated |       185 |       185 
 -----------+-----------+----------
      Total |     2,675 |     2,675 </code></pre>
-<h2 id="半径匹配">半径匹配</h2>
+<h3 id="半径匹配">半径匹配</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2  treat $vars,out(re78)  ate radius caliper(0.01)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>Probit regression                               Number of obs     =      2,675
                                                 LR chi2(13)       =     940.49
@@ -1484,7 +1485,7 @@ assignment | Off suppo  On suppor |     Total
    Treated |        50        135 |       185 
 -----------+----------------------+----------
      Total |       138      2,537 |     2,675 </code></pre>
-<h2 id="核匹配">核匹配</h2>
+<h3 id="核匹配">核匹配</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2  treat $vars,out(re78)  ate kernel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>Probit regression                               Number of obs     =      2,675
                                                 LR chi2(13)       =     940.49
@@ -1538,7 +1539,7 @@ assignment | On suppor |     Total
    Treated |       185 |       185 
 -----------+-----------+----------
      Total |     2,675 |     2,675 </code></pre>
-<h2 id="对自变量进行平衡性检验">对自变量进行平衡性检验</h2>
+<h3 id="对自变量进行平衡性检验">对自变量进行平衡性检验</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">pstest $vars, both graph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>--------------------------------------------------------------------------------
 &gt; --------
@@ -1635,9 +1636,9 @@ nodegree               U  | .70811   .30522     87.9         |  11.49  0.000 |
 --------------------------------------------------------------------------------
 &gt; ---
 * if B&gt;25%, R outside [0.5; 2]</code></pre>
-<h2 id="共同支持区间">共同支持区间</h2>
+<h3 id="共同支持区间">共同支持区间</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psgraph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h1 id="倾向得分匹配psm中协变量的筛选">倾向得分匹配(PSM)中协变量的筛选</h1>
+<h2 id="倾向得分匹配psm中协变量的筛选">倾向得分匹配(PSM)中协变量的筛选</h2>
 <blockquote>
 <p>倾向得分匹配分析 (PSM) 已经在诸多领域得到了应用。虽然 PSM 不能完全解决内生性问题，但却能在很大程度上缓解自我选择问题导致的偏差。在前期文献中，Becker &amp; Ichino (2002, Stata Journal, 2(4):358-377) 对 PSM 的分析过程进行了详细的介绍，Stata 中也有多个命令可以执行 PSM 分析，如 <code>pscore</code>, <code>psmatch2</code>, <code>treatrew</code>(Stata Journal, 14(3): 541-561), <code>gpscore</code> (SJ 8(3):354--373), <code>kmatch</code></p>
 </blockquote>
@@ -1675,7 +1676,7 @@ ANCILLARY FILES                                  (type net get st0328)
       st0328/output_proof.dta
       st0328/examples.do
 --------------------------------------------------------------------------------</code></pre>
-<h2 id="平衡性假设">平衡性假设</h2>
+<h3 id="平衡性假设">平衡性假设</h3>
 <p>在 PSM 匹配时，用treat变量对控制变量进行Logit回归，得到倾向得分值。倾向得分值最接近的控制组个体即为实验组的配对样本，通过这种方法可以最大程度减少实验组与控制组个体存在的系统性差异，从而减少估计偏误。在进行PSM匹配后的其他估计前比如PSM-DID 估计前，还需进行协变量的平衡性假设检验，即匹配后各变量在实验组和控制组之间是否变得平衡，也就是说实验组和控制组协变量的均值在匹配后是否具有显著差异。如果不存在显著差异，则支持进一步的模型估计。</p>
 <p>在平衡性检验之前，我们先使用<code>psmatch2</code>命令进行PSM匹配，处理变量为train，协变量为age、educ、black，结果变量为re78，采用一对一近邻匹配，具体操作如下：</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use ldw_exper.dta,clear<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1742,16 +1743,16 @@ Ps R2   LR chi2   p&gt;chi2   MeanBias   MedBias      B       R     %Var
 0.019      9.70    0.084      9.3       9.2      32.4*    2.23*    50
 ----------------------------------------------------------------------
 * if B&gt;25%, R outside [0.5; 2]</code></pre>
-<h2 id="选择匹配协变量">选择匹配协变量</h2>
+<h3 id="选择匹配协变量">选择匹配协变量</h3>
 <p>根据t检验结果发现，以上5个协变量在实验组与控制组之间不存在显著性差异。</p>
 <p>那么，在进行 PSM 分析之前，应当如何选择匹配协变量，使模型实现最佳的拟合效果呢？今天介绍的 psestimate 命令可以通过比较不同模型的极大似然值，帮助我们选择能实现最佳拟合效果的协变量的一阶和二阶形式。</p>
 <p>The <code>psestimate</code> command estimates the propensity score proposed by <a target="_blank" rel="noopener" href="https://www.sci-hub.shop/10.3368/jhr.50.2.373">Imbens and Rubin (2015)</a>. The main purpose of the program is to select a linear or quadratic function of covariates to include in the estimation function of the propensity score.</p>
-<h3 id="命令的安装与示例数据导入">命令的安装与示例数据导入</h3>
+<h4 id="命令的安装与示例数据导入">命令的安装与示例数据导入</h4>
 <p>在Stata命令窗口执行第一行代码即可完成对 <code>psestimate</code> 命令的下载，然后输入第二行命令下载网上示例数据 nswre74.dta（LaLonde, 1986），并执行第三行命令导入数据。</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">ssc install psestimate, replace //安装命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>checking psestimate consistency and verifying not already installed...
 all files already exist and are up to date.</code></pre>
-<h3 id="命令的语法">命令的语法</h3>
+<h4 id="命令的语法">命令的语法</h4>
 <p>该命令的语法如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">psestimate depvar [indepvars] [if] [in] [, options]
 options：             
@@ -1778,9 +1779,9 @@ options：
 <li><code>genpscore(newvar)</code>，可选项，由于指定程序自动生成的用于记录倾向得分值的新变量的名称</li>
 <li><code>genlor(newvar)</code>，可选项，生成对数似然比的新变量的名称</li>
 </ul>
-<h2 id="命令操作">命令操作</h2>
+<h3 id="命令操作">命令操作</h3>
 <p> </p>
-<h3 id="命令基本操作">命令基本操作</h3>
+<h4 id="命令基本操作">命令基本操作</h4>
 <p>下面本文将基于 <code>psestimate</code> 命令的作者提供的数据集 <strong>nswre74.dta</strong> 来简要说明如何使用 <code>psestimate</code> 这一命令来选择能最好拟合处理变量 (treat) 的协变量的一阶及二阶形式。</p>
 <p>在这里，我们事先选定教育变量 <strong>ed</strong> 作为基准模型中的一个协变量，意味着 Stata 自动将 <strong>ed</strong> 放入基准模型中。另外，我们将指定 <strong>age</strong>、<strong>black</strong>、<strong>hisp</strong>、<strong>nodeg</strong> 四个变量作为待选协变量。代码如下：</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use "nswre74.dta", clear
@@ -1796,7 +1797,7 @@ Selecting second order covariates... (21)
 Selected second order covariates are: c.nodeg#c.ed
 Final model is: ed nodeg hisp c.nodeg#c.ed</code></pre>
 <p>根据以上结果，可以确定在倾向得分匹配中，我们应该选取的一阶协变量为 <strong>nodeg</strong>、<strong>hisp</strong>，二阶协变量为 <strong>c.nodeg#c.ed</strong>。综上，根据 <code>psestimate</code> 命令的运算结果，我们应该选取 <strong>ed</strong>、<strong>nodeg</strong>、<strong>hisp</strong>、<strong>c.nodeg#c.ed</strong> 等四个变量作为倾向得分匹配的协变量。</p>
-<h3 id="提升运算速度">提升运算速度</h3>
+<h4 id="提升运算速度">提升运算速度</h4>
 <p><code>psestimate</code>命令在运算中会耗费较长时间，而通常来说，该命令在选择协变量的一阶形式时要快于二阶形式的选择，因此，为了加快运算速度，我们可以首先通过加入<code>noquad</code>选项，只对协变量的一阶形式进行筛选，当一阶形式选定后，将其作为解释变量放入基准模型中，然后加入<code>nolin</code> 选项跳过一阶形式筛选步骤，只对协变量的二阶形式进行筛选。具体操作如下。</p>
 <p>首先，加入入<code>noquad</code>选项，只筛选协变量的一阶形式，如下：</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use "nswre74.dta", clear
@@ -1814,9 +1815,9 @@ Final model is: ed nodeg hisp</code></pre>
 .....s.....
 Selected second order covariates are: c.nodeg#c.ed
 Final model is: ed nodeg hisp  c.nodeg#c.ed</code></pre>
-<h2 id="psestimate-的核心思想">psestimate 的核心思想</h2>
+<h3 id="psestimate-的核心思想">psestimate 的核心思想</h3>
 <p> </p>
-<h3 id="协变量一阶形式的选择">协变量一阶形式的选择</h3>
+<h4 id="协变量一阶形式的选择">协变量一阶形式的选择</h4>
 <p>第一步，该程序首先在基准模型（<code>logit treat ed</code>）基础上通过循环分别加入 <code>totry()</code> 中指定的四个变量 <strong>age</strong>、<strong>black</strong>、<strong>hisp</strong>、<strong>nodeg</strong>，进行四次模型估计，如下所示：</p>
 <pre class="line-numbers language-none"><code class="language-none">logit treat ed age
 logit treat ed black
@@ -1832,7 +1833,7 @@ logit treat ed nodeg hisp<span aria-hidden="true" class="line-numbers-rows"><spa
 ...s..s..
 Selected first order covariates are: nodeg hisp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p> </p>
-<h3 id="协变量二阶形式的选择">协变量二阶形式的选择</h3>
+<h4 id="协变量二阶形式的选择">协变量二阶形式的选择</h4>
 <p>在协变量二阶形式的选择上，主要分为协变量平方项以及协变量间的交乘项。 如果在一阶形式中只选择了 <strong>a</strong> 这一个协变量，则二阶形式的选择只需要检验 <strong>a^2</strong> 这一变量。但是如果有 <strong>a</strong>、<strong>b</strong> 两个一阶协变量被选择，则二阶形式的选择需要检验 <strong>a<sup>2<strong>、</strong>b</sup>2</strong>、<strong>ab</strong> 三个二阶协变量形式。具体到本例，确定的一阶协变量有 <strong>ed</strong>、<strong>nodeg</strong>、<strong>hisp</strong> 三个，则需要检验的二阶协变量有六个，即 <strong>ed<sup>2<strong>、</strong>nodeg</sup>2</strong>、<strong>hisp^2</strong>、<strong>c.ed#c.nodeg</strong>、<strong>c.ed#c.hisp</strong>、<strong>c.nodeg#c.hisp</strong>，筛选过程与选择协变量一阶形式的方法一致。因此本例中共需估计 即 21 次（如下括号中所示），结果如下所示：</p>
 <pre class="line-numbers language-none"><code class="language-none">Selecting second order covariates... (21)
 ----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
@@ -1840,14 +1841,14 @@ Selected first order covariates are: nodeg hisp<span aria-hidden="true" class="l
 Selected second order covariates are: c.nodeg#c.ed
 Final model is: ed nodeg hisp c.nodeg#c.ed<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p> </p>
-<h3 id="流程图展示">流程图展示</h3>
+<h4 id="流程图展示">流程图展示</h4>
 <p>如下流程图可以更加直观地展现<code>psestimate</code>筛选协变量一阶及二阶形式的过程，为简化分析，我们可供选择的协变量为<strong>a</strong>、<strong>b</strong>两个变量，假设各模型的对数极大似然值存在如下大小关系，LL1&gt;LL2&gt; <code>clinear()</code> &gt;LL3,LL4&gt;LL5&gt;LL6&gt; <code>cquadratic()</code> &gt;LL7&gt;LL8。</p>
 <figure>
 <img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/17510288-32214398557f861a.png" alt=""><figcaption>图1.流程图</figcaption>
 </figure>
-<h2 id="psm估计的完整流程示例">PSM估计的完整流程示例</h2>
+<h3 id="psm估计的完整流程示例">PSM估计的完整流程示例</h3>
 <p> </p>
-<h3 id="psestimate-筛选匹配变量的一阶二阶形式">psestimate 筛选匹配变量的一阶、二阶形式</h3>
+<h4 id="psestimate-筛选匹配变量的一阶二阶形式">psestimate 筛选匹配变量的一阶、二阶形式</h4>
 <p>第一步，使用<code>psestimate</code>筛选匹配变量</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use "nswre74.dta", clear
 psestimate treat ed, totry(age black hisp nodeg) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1862,7 +1863,7 @@ Selecting second order covariates... (21)
 Selected second order covariates are: c.nodeg#c.ed
 Final model is: ed nodeg hisp c.nodeg#c.ed</code></pre>
 <p>最终选择的匹配变量为<strong>ed</strong>、<strong>nodeg</strong>、<strong>hisp</strong>、<strong>c.nodeg#c.ed</strong></p>
-<h3 id="psmatch2-基于筛选出的匹配变量进行psm匹配">psmatch2 基于筛选出的匹配变量进行PSM匹配</h3>
+<h4 id="psmatch2-基于筛选出的匹配变量进行psm匹配">psmatch2 基于筛选出的匹配变量进行PSM匹配</h4>
 <p>基于上述匹配变量进行PSM匹配：</p>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2 treat ed nodeg hisp c.nodeg#c.ed, logit ate neighbor(1) common caliper(.05) ties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>Logistic regression                             Number of obs     =        445
@@ -1881,7 +1882,7 @@ c.nodeg#c.ed |  -.6068825   .3375387    -1.80   0.072    -1.268446    .0546813
              |
        _cons |  -6.021438    4.05441    -1.49   0.138    -13.96794    1.925059
 ------------------------------------------------------------------------------</code></pre>
-<h3 id="pstest-进行平衡性假设检验">pstest 进行平衡性假设检验</h3>
+<h4 id="pstest-进行平衡性假设检验">pstest 进行平衡性假设检验</h4>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">pstest ed nodeg hisp c.nodeg#c.ed, t(treat)  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>------------------------------------------------------------------------------
                         |       Mean               |     t-test    |  V(T)/
@@ -1900,20 +1901,20 @@ Ps R2   LR chi2   p&gt;chi2   MeanBias   MedBias      B       R     %Var
 0.002      1.09    0.896      4.2       3.7      10.8    1.43       0
 ----------------------------------------------------------------------
 * if B&gt;25%, R outside [0.5; 2]</code></pre>
-<h3 id="psgraph-绘图直观呈现各匹配变量的平衡性状况">psgraph 绘图直观呈现各匹配变量的平衡性状况</h3>
+<h4 id="psgraph-绘图直观呈现各匹配变量的平衡性状况">psgraph 绘图直观呈现各匹配变量的平衡性状况</h4>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psgraph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>图中也可以直观看出，实验组与控制组的倾向得分值分布大致平衡。</p>
 </blockquote>
-<h3 id="参考文献">参考文献</h3>
+<h4 id="参考文献">参考文献</h4>
 <ol type="1">
 <li>Dehejia, Rajeev H. and Sadek Wahba. 1999. "Causal Effects in Nonexperimental Studies". Journal of the American Statistical Association 94(448): 1053-1062.</li>
 <li>Imbens, Guido W. and Donald B. Rubin. 2015. Causal Inference in Statistics, Social, and Biomedical Sciences. New York: Cambridge University Press.</li>
 <li>Imbens, Guido W. 2015. “Matching Methods in Practice: Three Examples.” Journal of Human Resources 50 (2): 373–419. [<a target="_blank" rel="noopener" href="https://www.sci-hub.shop/10.3368/jhr.50.2.373">PDF1]</a>， [<a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/975a/9905a091498d9878ebcd42cb01eff7e02e8d.pdf?_ga=2.17924345.130556769.1557067739-533034284.1555775018">PDF2-wp]</a></li>
 <li>LaLonde, Robert J. 1986. “Evaluating the Econometric Evaluations of Training Programs with Experimental Data.” The American Economic Review 76 (4): 604–20. [<a target="_blank" rel="noopener" href="http://www.uh.edu/~adkugler/Lalonde.pdf">PDF]</a></li>
 </ol>
-<h1 id="psm-did在stata中的实现过程代码">PSM-DID在Stata中的实现过程代码</h1>
-<h2 id="数据准备">数据准备</h2>
+<h2 id="psm-did在stata中的实现过程代码">PSM-DID在Stata中的实现过程代码</h2>
+<h3 id="数据准备">数据准备</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use nlswork.dta,clear<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>(National Longitudinal Survey.  Young Women 14-26 years of age in 1968)</code></pre>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">xtset idcode year, delta(1)  //设置面板
@@ -1970,7 +1971,7 @@ sum ln_w $xlist  //统计描述相关变量<span aria-hidden="true" class="line-
        south |     28,526    .4095562    .4917605          0          1
 -------------+---------------------------------------------------------
         race |     28,534    1.303392    .4822773          1          3</code></pre>
-<h2 id="did方法">DID方法</h2>
+<h3 id="did方法">DID方法</h3>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">gen time = (year &gt;= 77) &amp; !missing(year)  //政策执行时间为1977年
 gen treated = (idcode &gt;2000)&amp;!missing(idcode) //政策执行地方为idcode大于2000的地方
 gen did = time*treated  //这就是需要估计的DID，也就所交叉项<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -2057,8 +2058,8 @@ corr(u_i, Xb)  = 0.1840                         Prob &gt; F          =     0.000
          rho |  .59764928   (fraction of variance due to u_i)
 ------------------------------------------------------------------------------
 F test that all u_i=0: F(4696, 23371) = 6.58                 Prob &gt; F = 0.0000</code></pre>
-<h2 id="psm-did方法">PSM-DID方法</h2>
-<h3 id="psm的部分">PSM的部分</h3>
+<h3 id="psm-did方法">PSM-DID方法</h3>
+<h4 id="psm的部分">PSM的部分</h4>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">set seed 0001 //定义种子
 gen tmp = runiform() //生成随机数
 sort tmp //把数据库随机整理<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -2194,7 +2195,7 @@ drop if common == 0  //去掉不满足共同区域假定的观测值
 <pre><code>(443 missing values generated)
 
 (22 observations deleted)</code></pre>
-<h3 id="did的部分">DID的部分</h3>
+<h4 id="did的部分">DID的部分</h4>
 <pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">reg ln_w did time treated $xlist <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre><code>      Source |       SS           df       MS      Number of obs   =    28,069
 -------------+----------------------------------   F(13, 28055)    =   1294.85

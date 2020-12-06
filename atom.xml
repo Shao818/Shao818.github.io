@@ -6,7 +6,7 @@
   <link href="https://wangshao0818.com/atom.xml" rel="self"/>
   
   <link href="https://wangshao0818.com/"/>
-  <updated>2020-12-06T08:47:33.131Z</updated>
+  <updated>2020-12-06T08:56:45.308Z</updated>
   <id>https://wangshao0818.com/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="https://wangshao0818.com/posts/2474087705/"/>
     <id>https://wangshao0818.com/posts/2474087705/</id>
     <published>2020-12-06T08:26:12.000Z</published>
-    <updated>2020-12-06T08:47:33.131Z</updated>
+    <updated>2020-12-06T08:56:45.308Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;stata手动各类匹配方法大全-a理论篇&quot;&gt;Stata手动：各类匹配方法大全 A——理论篇&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;匹配是研究处理效应的常见工具，本文总结了常见的匹配方法，并在第三部分给出 Stata</summary>
+    <summary type="html">&lt;h1 id=&quot;倾向得分匹配法psm&quot;&gt;倾向得分匹配法（PSM）&lt;/h1&gt;
+&lt;h2 id=&quot;stata手动各类匹配方法大全-a理论篇&quot;&gt;Stata手动：各类匹配方法大全</summary>
         
       
     
