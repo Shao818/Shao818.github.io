@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="第四三篇博客, R,Stata等">
+    <meta name="keywords" content="倾向得分匹配法（PSM）, R,Stata等">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>第四三篇博客 | 王芍</title>
+    <title>倾向得分匹配法（PSM） | 王芍</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,7 +315,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = 'f79890d05fd23989cb38891a44017345f7a170825fcb1dfef24fe431fded8ca0';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -328,12 +328,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">第四三篇博客</h1>
+                    <h1 class="description center-align post-title">倾向得分匹配法（PSM）</h1>
                 </div>
             </div>
         </div>
@@ -449,8 +449,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%85%AC%E5%BC%8F/">
-                                <span class="chip bg-color">公式</span>
+                            <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                                <span class="chip bg-color">计量经济学</span>
+                            </a>
+                        
+                            <a href="/tags/PSM/">
+                                <span class="chip bg-color">PSM</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                                <span class="chip bg-color">倾向得分匹配法</span>
                             </a>
                         
                     </div>
@@ -461,8 +469,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                程序
+                            <a href="/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="post-category">
+                                计量经济学
                             </a>
                         
                     </div>
@@ -474,7 +482,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-06
                 </div>
                 
 
@@ -485,7 +493,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    12 分
                 </div>
                 
 
@@ -508,14 +516,361 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="行内公示">行内公示</h1>
+                <h1 id="倾向得分匹配法的实现psmatch2">倾向得分匹配法的实现：<code>psmatch2</code></h1>
+<p>其实呢，psmatch2和pscore除了句法结构稍有不同之外，估计的结果等是完全相同的。</p>
+<p>我大致列一下命令，感兴趣的朋友可以自行尝试。</p>
+<h3 id="基本命令">基本命令</h3>
+<p></p><pre class="line-numbers language-none"><code class="language-none">psmatch2 depvar [indepvars] [if exp] [in range] [, outcome(varlist) pscore(varname)
+                     neighbor(integer) radius caliper(real) mahalanobis(varlist) ai(integer) population
+                     altvariance kernel llr kerneltype(type) bwidth(real) spline nknots(integer) common
+                     trim(real) noreplacement descending odds index logit ties quietly w(matrix) ate]
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p></p>
 <ul>
-<li>这里一个行内公示<span class="math inline">\(\Delta_{i,t}=x^{2}+y_{i}\)</span></li>
+<li><code>neighbor(integer)</code> number of neighbors used to calculate the matched outcome.Defaults to 1. Default matching method is single nearest-neighbour (without caliper).<br>
+</li>
+<li><code>noreplacement</code> perform 1-to-1 matching without replacement. Nearest neigbor propensity score matching only.<br>
+</li>
+<li><code>descending</code> perform 1-to-1 matching without replacement in descending order. Nearest neighbor propensity score matching only.<br>
+</li>
+<li><code>ties</code> not only match nearest neighbor but also other controls with identical (tied) pscores.<br>
+</li>
+<li><code>radius</code> perform radius matching within the specified radius given by caliper.<br>
+</li>
+<li><code>caliper(real)</code> value for maximum distance of controls. Use to perform nearest neighbor(s) within caliper, radius matching and Mahalanobis 1-to-1 matching.</li>
+<li><code>kernel</code> perform kernel matching.</li>
+<li>kerneltype(kernel_type) specifies the type of kernel:
+<ul>
+<li><code>normal</code> the gaussian kernel.</li>
+<li><code>biweight</code> the biweight kernel.</li>
+<li><code>epan</code> the epanechnikov kernel (Default).</li>
+<li><code>uniform</code> the uniform kernel.<br>
+</li>
+</ul></li>
+<li><code>llr</code> llr use local linear regression matching instead of kernel matching.</li>
+<li><code>bwidth(real)</code> the bandwidth for kernel and local linear regression matching. Default bandwidth is 0.06, except when doing local linear regression with the Epanechnikov kernel when the default bandwidth is the rule-of-thumb bandwidth of lpoly.</li>
+<li><code>mahalanobis(varlist)</code> perform Mahalanobis-metric matching on varlist.</li>
 </ul>
-<h2 id="独立公示">独立公示</h2>
-<p><span class="math display">\[
-y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
-\]</span></p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use nswpsid,clear
+
+rename _all,lower
+
+global breps 1000
+global vars age agesq educ educsq black hisp marr re74 re75 re74sq u74 u75 u74hisp nodegree  
+
+psmatch2  treat $vars ,out(re78)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​<br>
+​<br>
+​<br>
+​<br>
+​</p>
+<pre><code>Probit regression                               Number of obs     =      2,675
+                                                LR chi2(13)       =     940.49
+                                                Prob &gt; chi2       =     0.0000
+Log likelihood = -202.40579                     Pseudo R2         =     0.6991
+
+------------------------------------------------------------------------------
+       treat |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         age |   .1543439   .0644103     2.40   0.017     .0281021    .2805857
+       agesq |  -.0030911   .0009855    -3.14   0.002    -.0050227   -.0011595
+        educ |   .3889617   .1795042     2.17   0.030     .0371398    .7407835
+      educsq |  -.0226529   .0092936    -2.44   0.015    -.0408681   -.0044377
+       black |   1.345799   .1882886     7.15   0.000     .9767603    1.714838
+        hisp |   1.586357   .3700556     4.29   0.000     .8610618    2.311653
+        marr |  -.9527278    .154817    -6.15   0.000    -1.256163   -.6492921
+        re74 |  -.0000227   .0000212    -1.07   0.285    -.0000643    .0000189
+        re75 |  -.0001119   .0000205    -5.47   0.000     -.000152   -.0000718
+      re74sq |   9.77e-10   3.51e-10     2.78   0.005     2.89e-10    1.67e-09
+         u74 |    1.64806   .2656635     6.20   0.000     1.127369    2.168751
+         u75 |   -.542294   .2432332    -2.23   0.026    -1.019022   -.0655657
+     u74hisp |  -.9231337   .5719261    -1.61   0.107    -2.044088    .1978208
+    nodegree |   .1278371   .2203571     0.58   0.562    -.3040549     .559729
+       _cons |  -4.431708   1.310215    -3.38   0.001    -6.999682   -1.863734
+------------------------------------------------------------------------------
+Note: 507 failures and 0 successes completely determined.
+--------------------------------------------------------------------------------
+&gt; --------
+        Variable     Sample |    Treated     Controls   Difference         S.E. 
+&gt;   T-stat
+----------------------------+---------------------------------------------------
+&gt; --------
+            re78  Unmatched | 6349.14537   21553.9213  -15204.7759   1154.61435 
+&gt;   -13.17
+                        ATT | 6349.14537   4600.46309   1748.68228   1825.51521 
+&gt;     0.96
+----------------------------+---------------------------------------------------
+&gt; --------
+Note: S.E. does not take into account that the propensity score is estimated.
+
+           | psmatch2:
+ psmatch2: |   Common
+ Treatment |  support
+assignment | On suppor |     Total
+-----------+-----------+----------
+ Untreated |     2,490 |     2,490 
+   Treated |       185 |       185 
+-----------+-----------+----------
+     Total |     2,675 |     2,675 </code></pre>
+<h3 id="近邻匹配">近邻匹配</h3>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2  treat $vars,out(re78) neighbor(2) ate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Probit regression                               Number of obs     =      2,675
+                                                LR chi2(13)       =     940.49
+                                                Prob &gt; chi2       =     0.0000
+Log likelihood = -202.40579                     Pseudo R2         =     0.6991
+
+------------------------------------------------------------------------------
+       treat |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         age |   .1543439   .0644103     2.40   0.017     .0281021    .2805857
+       agesq |  -.0030911   .0009855    -3.14   0.002    -.0050227   -.0011595
+        educ |   .3889617   .1795042     2.17   0.030     .0371398    .7407835
+      educsq |  -.0226529   .0092936    -2.44   0.015    -.0408681   -.0044377
+       black |   1.345799   .1882886     7.15   0.000     .9767603    1.714838
+        hisp |   1.586357   .3700556     4.29   0.000     .8610618    2.311653
+        marr |  -.9527278    .154817    -6.15   0.000    -1.256163   -.6492921
+        re74 |  -.0000227   .0000212    -1.07   0.285    -.0000643    .0000189
+        re75 |  -.0001119   .0000205    -5.47   0.000     -.000152   -.0000718
+      re74sq |   9.77e-10   3.51e-10     2.78   0.005     2.89e-10    1.67e-09
+         u74 |    1.64806   .2656635     6.20   0.000     1.127369    2.168751
+         u75 |   -.542294   .2432332    -2.23   0.026    -1.019022   -.0655657
+     u74hisp |  -.9231337   .5719261    -1.61   0.107    -2.044088    .1978208
+    nodegree |   .1278371   .2203571     0.58   0.562    -.3040549     .559729
+       _cons |  -4.431708   1.310215    -3.38   0.001    -6.999682   -1.863734
+------------------------------------------------------------------------------
+Note: 507 failures and 0 successes completely determined.
+--------------------------------------------------------------------------------
+&gt; --------
+        Variable     Sample |    Treated     Controls   Difference         S.E. 
+&gt;   T-stat
+----------------------------+---------------------------------------------------
+&gt; --------
+            re78  Unmatched | 6349.14537   21553.9213  -15204.7759   1154.61435 
+&gt;   -13.17
+                        ATT | 6349.14537   4570.95733   1778.18805   1626.12983 
+&gt;     1.09
+                        ATU | 21553.9213   5483.05914  -16070.8622            . 
+&gt;        .
+                        ATE |                          -14836.4419            . 
+&gt;        .
+----------------------------+---------------------------------------------------
+&gt; --------
+Note: S.E. does not take into account that the propensity score is estimated.
+
+           | psmatch2:
+ psmatch2: |   Common
+ Treatment |  support
+assignment | On suppor |     Total
+-----------+-----------+----------
+ Untreated |     2,490 |     2,490 
+   Treated |       185 |       185 
+-----------+-----------+----------
+     Total |     2,675 |     2,675 </code></pre>
+<h3 id="半径匹配">半径匹配</h3>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2  treat $vars,out(re78)  ate radius caliper(0.01)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Probit regression                               Number of obs     =      2,675
+                                                LR chi2(13)       =     940.49
+                                                Prob &gt; chi2       =     0.0000
+Log likelihood = -202.40579                     Pseudo R2         =     0.6991
+
+------------------------------------------------------------------------------
+       treat |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         age |   .1543439   .0644103     2.40   0.017     .0281021    .2805857
+       agesq |  -.0030911   .0009855    -3.14   0.002    -.0050227   -.0011595
+        educ |   .3889617   .1795042     2.17   0.030     .0371398    .7407835
+      educsq |  -.0226529   .0092936    -2.44   0.015    -.0408681   -.0044377
+       black |   1.345799   .1882886     7.15   0.000     .9767603    1.714838
+        hisp |   1.586357   .3700556     4.29   0.000     .8610618    2.311653
+        marr |  -.9527278    .154817    -6.15   0.000    -1.256163   -.6492921
+        re74 |  -.0000227   .0000212    -1.07   0.285    -.0000643    .0000189
+        re75 |  -.0001119   .0000205    -5.47   0.000     -.000152   -.0000718
+      re74sq |   9.77e-10   3.51e-10     2.78   0.005     2.89e-10    1.67e-09
+         u74 |    1.64806   .2656635     6.20   0.000     1.127369    2.168751
+         u75 |   -.542294   .2432332    -2.23   0.026    -1.019022   -.0655657
+     u74hisp |  -.9231337   .5719261    -1.61   0.107    -2.044088    .1978208
+    nodegree |   .1278371   .2203571     0.58   0.562    -.3040549     .559729
+       _cons |  -4.431708   1.310215    -3.38   0.001    -6.999682   -1.863734
+------------------------------------------------------------------------------
+Note: 507 failures and 0 successes completely determined.
+--------------------------------------------------------------------------------
+&gt; --------
+        Variable     Sample |    Treated     Controls   Difference         S.E. 
+&gt;   T-stat
+----------------------------+---------------------------------------------------
+&gt; --------
+            re78  Unmatched | 6349.14537   21553.9213  -15204.7759   1154.61435 
+&gt;   -13.17
+                        ATT | 5797.07774   4992.15701   804.920727   2941.28189 
+&gt;     0.27
+                        ATU | 22014.9702    4457.3058  -17557.6644            . 
+&gt;        .
+                        ATE |                          -16580.5462            . 
+&gt;        .
+----------------------------+---------------------------------------------------
+&gt; --------
+Note: S.E. does not take into account that the propensity score is estimated.
+
+ psmatch2: |   psmatch2: Common
+ Treatment |        support
+assignment | Off suppo  On suppor |     Total
+-----------+----------------------+----------
+ Untreated |        88      2,402 |     2,490 
+   Treated |        50        135 |       185 
+-----------+----------------------+----------
+     Total |       138      2,537 |     2,675 </code></pre>
+<h3 id="核匹配">核匹配</h3>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2  treat $vars,out(re78)  ate kernel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Probit regression                               Number of obs     =      2,675
+                                                LR chi2(13)       =     940.49
+                                                Prob &gt; chi2       =     0.0000
+Log likelihood = -202.40579                     Pseudo R2         =     0.6991
+
+------------------------------------------------------------------------------
+       treat |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         age |   .1543439   .0644103     2.40   0.017     .0281021    .2805857
+       agesq |  -.0030911   .0009855    -3.14   0.002    -.0050227   -.0011595
+        educ |   .3889617   .1795042     2.17   0.030     .0371398    .7407835
+      educsq |  -.0226529   .0092936    -2.44   0.015    -.0408681   -.0044377
+       black |   1.345799   .1882886     7.15   0.000     .9767603    1.714838
+        hisp |   1.586357   .3700556     4.29   0.000     .8610618    2.311653
+        marr |  -.9527278    .154817    -6.15   0.000    -1.256163   -.6492921
+        re74 |  -.0000227   .0000212    -1.07   0.285    -.0000643    .0000189
+        re75 |  -.0001119   .0000205    -5.47   0.000     -.000152   -.0000718
+      re74sq |   9.77e-10   3.51e-10     2.78   0.005     2.89e-10    1.67e-09
+         u74 |    1.64806   .2656635     6.20   0.000     1.127369    2.168751
+         u75 |   -.542294   .2432332    -2.23   0.026    -1.019022   -.0655657
+     u74hisp |  -.9231337   .5719261    -1.61   0.107    -2.044088    .1978208
+    nodegree |   .1278371   .2203571     0.58   0.562    -.3040549     .559729
+       _cons |  -4.431708   1.310215    -3.38   0.001    -6.999682   -1.863734
+------------------------------------------------------------------------------
+Note: 507 failures and 0 successes completely determined.
+--------------------------------------------------------------------------------
+&gt; --------
+        Variable     Sample |    Treated     Controls   Difference         S.E. 
+&gt;   T-stat
+----------------------------+---------------------------------------------------
+&gt; --------
+            re78  Unmatched | 6349.14537   21553.9213  -15204.7759   1154.61435 
+&gt;   -13.17
+                        ATT | 6349.14537   5437.46536   911.680015   3074.54428 
+&gt;     0.30
+                        ATU | 21553.9213   11330.8223   -10223.099            . 
+&gt;        .
+                        ATE |                          -9453.03015            . 
+&gt;        .
+----------------------------+---------------------------------------------------
+&gt; --------
+Note: S.E. does not take into account that the propensity score is estimated.
+
+           | psmatch2:
+ psmatch2: |   Common
+ Treatment |  support
+assignment | On suppor |     Total
+-----------+-----------+----------
+ Untreated |     2,490 |     2,490 
+   Treated |       185 |       185 
+-----------+-----------+----------
+     Total |     2,675 |     2,675 </code></pre>
+<h3 id="对自变量进行平衡性检验">对自变量进行平衡性检验</h3>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">pstest $vars, both graph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>--------------------------------------------------------------------------------
+&gt; --------
+                Unmatched |       Mean               %reduct |     t-test    |  
+&gt; V(T)/
+Variable          Matched | Treated Control    %bias  |bias| |    t    p&gt;|t| |  
+&gt; V(C)
+--------------------------+----------------------------------+---------------+--
+&gt; --------
+age                    U  | 25.816   34.851   -100.9         | -11.57  0.000 |  
+&gt; 0.47*
+                       M  | 25.816   25.114      7.8    92.2 |   1.04  0.297 |  
+&gt; 1.58*
+                          |                                  |               |
+agesq                  U  | 717.39   1323.5    -97.1         | -10.59  0.000 |  
+&gt; 0.31*
+                       M  | 717.39   662.88      8.7    91.0 |   1.31  0.190 |  
+&gt; 1.40*
+                          |                                  |               |
+educ                   U  | 10.346   12.117    -68.1         |  -7.69  0.000 |  
+&gt; 0.43*
+                       M  | 10.346   10.734    -14.9    78.1 |  -1.91  0.057 |  
+&gt; 1.13
+                          |                                  |               |
+educsq                 U  | 111.06   156.32    -78.5         |  -8.52  0.000 |  
+&gt; 0.30*
+                       M  | 111.06   118.77    -13.4    83.0 |  -1.88  0.061 |  
+&gt; 0.98
+                          |                                  |               |
+black                  U  | .84324    .2506    148.0         |  18.13  0.000 |  
+&gt;    .
+                       M  | .84324   .84831     -1.3    99.1 |  -0.13  0.893 |  
+&gt;    .
+                          |                                  |               |
+hisp                   U  | .05946   .03253     12.9         |   1.94  0.053 |  
+&gt;    .
+                       M  | .05946   .06369     -2.0    84.3 |  -0.17  0.866 |  
+&gt;    .
+                          |                                  |               |
+marr                   U  | .18919   .86627   -184.2         | -25.81  0.000 |  
+&gt;    .
+                       M  | .18919   .13374     15.1    91.8 |   1.45  0.148 |  
+&gt;    .
+                          |                                  |               |
+re74                   U  | 2095.6    19429   -171.8         | -17.50  0.000 |  
+&gt; 0.13*
+                       M  | 2095.6   2569.4     -4.7    97.3 |  -0.83  0.407 |  
+&gt; 0.65*
+                          |                                  |               |
+re75                   U  | 1532.1    19063   -177.4         | -17.50  0.000 |  
+&gt; 0.06*
+                       M  | 1532.1   2518.3    -10.0    94.4 |  -2.14  0.033 |  
+&gt; 0.36*
+                          |                                  |               |
+re74sq                 U  | 2.8e+07   5.6e+08    -85.7         |  -8.30  0.000 |
+&gt;   0.02*
+                       M  | 2.8e+07   4.3e+07     -2.4    97.2 |  -0.78  0.437 |
+&gt;   0.24*
+                          |                                  |               |
+u74                    U  | .70811   .08635    164.2         |  27.54  0.000 |  
+&gt;    .
+                       M  | .70811   .64162     17.6    89.3 |   1.36  0.173 |  
+&gt;    .
+                          |                                  |               |
+u75                    U  |     .6       .1    122.8         |  20.70  0.000 |  
+&gt;    .
+                       M  |     .6   .50136     24.2    80.3 |   1.91  0.057 |  
+&gt;    .
+                          |                                  |               |
+u74hisp                U  | .03243   .00361     21.7         |   5.09  0.000 |  
+&gt;    .
+                       M  | .03243   .04352     -8.4    61.5 |  -0.56  0.578 |  
+&gt;    .
+                          |                                  |               |
+nodegree               U  | .70811   .30522     87.9         |  11.49  0.000 |  
+&gt;    .
+                       M  | .70811   .65062     12.5    85.7 |   1.18  0.237 |  
+&gt;    .
+                          |                                  |               |
+--------------------------------------------------------------------------------
+&gt; --------
+* if variance ratio outside [0.75; 1.34] for U and [0.75; 1.34] for M
+
+--------------------------------------------------------------------------------
+&gt; ---
+ Sample    | Ps R2   LR chi2   p&gt;chi2   MeanBias   MedBias      B      R     %Va
+&gt; r
+-----------+--------------------------------------------------------------------
+&gt; ---
+ Unmatched | 0.699    940.49    0.000    108.7      99.0     298.4*   0.27*   10
+&gt; 0
+ Matched   | 0.039     19.82    0.136     10.2       9.4      42.8*   0.52     7
+&gt; 1
+--------------------------------------------------------------------------------
+&gt; ---
+* if B&gt;25%, R outside [0.5; 2]</code></pre>
+<h3 id="共同支持区间">共同支持区间</h3>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psgraph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -542,7 +897,7 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wangshao0818.com/posts/3927316218/">https://wangshao0818.com/posts/3927316218/</a>
+                    <a href="https://wangshao0818.com/posts/2474087706/">https://wangshao0818.com/posts/2474087706/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -580,8 +935,16 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%85%AC%E5%BC%8F/">
-                                    <span class="chip bg-color">公式</span>
+                                <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                                    <span class="chip bg-color">计量经济学</span>
+                                </a>
+                            
+                                <a href="/tags/PSM/">
+                                    <span class="chip bg-color">PSM</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                                    <span class="chip bg-color">倾向得分匹配法</span>
                                 </a>
                             
                         </div>
@@ -755,13 +1118,13 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/3724259502/">
+                <a href="/posts/2474087705/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="工业数据分析手册">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="倾向得分匹配法（PSM）">
                         
-                        <span class="card-title">工业数据分析手册</span>
+                        <span class="card-title">倾向得分匹配法（PSM）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -772,14 +1135,14 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E/" class="post-category">
-                                    宏观经济
+                            <a href="/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="post-category">
+                                    计量经济学
                                 </a>
                             
                             
@@ -789,8 +1152,16 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BB%8F%E6%B5%8E%E6%8C%87%E6%A0%87/">
-                        <span class="chip bg-color">经济指标</span>
+                    <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                        <span class="chip bg-color">计量经济学</span>
+                    </a>
+                    
+                    <a href="/tags/PSM/">
+                        <span class="chip bg-color">PSM</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                        <span class="chip bg-color">倾向得分匹配法</span>
                     </a>
                     
                 </div>
@@ -801,16 +1172,16 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3927316218/">
+                <a href="/posts/2474087707/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="第四三篇博客">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="倾向得分匹配法（PSM）">
                         
-                        <span class="card-title">第四三篇博客</span>
+                        <span class="card-title">倾向得分匹配法（PSM）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -821,26 +1192,33 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                    程序
+                            <a href="/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="post-category">
+                                    计量经济学
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%AC%E5%BC%8F/">
-                        <span class="chip bg-color">公式</span>
+                    <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                        <span class="chip bg-color">计量经济学</span>
+                    </a>
+                    
+                    <a href="/tags/PSM/">
+                        <span class="chip bg-color">PSM</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                        <span class="chip bg-color">倾向得分匹配法</span>
                     </a>
                     
                 </div>

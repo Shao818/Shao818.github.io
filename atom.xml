@@ -6,7 +6,7 @@
   <link href="https://wangshao0818.com/atom.xml" rel="self"/>
   
   <link href="https://wangshao0818.com/"/>
-  <updated>2020-12-06T08:56:45.308Z</updated>
+  <updated>2020-12-06T15:20:02.364Z</updated>
   <id>https://wangshao0818.com/</id>
   
   <author>
@@ -15,6 +15,127 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>倾向得分匹配法（PSM）</title>
+    <link href="https://wangshao0818.com/posts/2474087705/"/>
+    <id>https://wangshao0818.com/posts/2474087705/</id>
+    <published>2020-12-06T08:26:12.000Z</published>
+    <updated>2020-12-06T15:20:02.364Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;倾向得分匹配法的实现pscore&quot;&gt;倾向得分匹配法的实现：&lt;code&gt;pscore&lt;/code&gt;&lt;/h1&gt;
+&lt;pre class=&quot;line-numbers language-stata&quot; data-language=&quot;stata&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    <category term="PSM" scheme="https://wangshao0818.com/tags/PSM/"/>
+    
+    <category term="倾向得分匹配法" scheme="https://wangshao0818.com/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>倾向得分匹配法（PSM）</title>
+    <link href="https://wangshao0818.com/posts/2474087706/"/>
+    <id>https://wangshao0818.com/posts/2474087706/</id>
+    <published>2020-12-06T08:26:12.000Z</published>
+    <updated>2020-12-06T15:19:53.102Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    <category term="PSM" scheme="https://wangshao0818.com/tags/PSM/"/>
+    
+    <category term="倾向得分匹配法" scheme="https://wangshao0818.com/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>倾向得分匹配法（PSM）</title>
+    <link href="https://wangshao0818.com/posts/2474087707/"/>
+    <id>https://wangshao0818.com/posts/2474087707/</id>
+    <published>2020-12-06T08:26:12.000Z</published>
+    <updated>2020-12-06T15:19:39.737Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;倾向得分匹配psm中协变量的筛选&quot;&gt;倾向得分匹配(PSM)中协变量的筛选&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;倾向得分匹配分析 (PSM) 已经在诸多领域得到了应用。虽然 PSM</summary>
+        
+      
+    
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    <category term="PSM" scheme="https://wangshao0818.com/tags/PSM/"/>
+    
+    <category term="倾向得分匹配法" scheme="https://wangshao0818.com/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>倾向得分匹配法（PSM）</title>
+    <link href="https://wangshao0818.com/posts/2474087708/"/>
+    <id>https://wangshao0818.com/posts/2474087708/</id>
+    <published>2020-12-06T08:26:12.000Z</published>
+    <updated>2020-12-06T15:19:28.019Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;psm-did在stata中的实现过程代码&quot;&gt;PSM-DID在Stata中的实现过程代码&lt;/h2&gt;
+&lt;h3 id=&quot;数据准备&quot;&gt;数据准备&lt;/h3&gt;
+&lt;pre class=&quot;line-numbers language-stata&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    <category term="PSM" scheme="https://wangshao0818.com/tags/PSM/"/>
+    
+    <category term="倾向得分匹配法" scheme="https://wangshao0818.com/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>倾向得分匹配法（PSM）</title>

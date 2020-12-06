@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="第四三篇博客, R,Stata等">
+    <meta name="keywords" content="倾向得分匹配法（PSM）, R,Stata等">
     <meta name="description" content="本网站是个人兴趣爱好，总结分享经验，记录生活点滴的平台，希望在以后的学习旅途中，走出自己的风景。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>第四三篇博客 | 王芍</title>
+    <title>倾向得分匹配法（PSM） | 王芍</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,7 +315,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = 'f79890d05fd23989cb38891a44017345f7a170825fcb1dfef24fe431fded8ca0';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -328,12 +328,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">第四三篇博客</h1>
+                    <h1 class="description center-align post-title">倾向得分匹配法（PSM）</h1>
                 </div>
             </div>
         </div>
@@ -449,8 +449,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%85%AC%E5%BC%8F/">
-                                <span class="chip bg-color">公式</span>
+                            <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                                <span class="chip bg-color">计量经济学</span>
+                            </a>
+                        
+                            <a href="/tags/PSM/">
+                                <span class="chip bg-color">PSM</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                                <span class="chip bg-color">倾向得分匹配法</span>
                             </a>
                         
                     </div>
@@ -461,8 +469,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                程序
+                            <a href="/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="post-category">
+                                计量经济学
                             </a>
                         
                     </div>
@@ -474,7 +482,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-30
+                    2020-12-06
                 </div>
                 
 
@@ -485,7 +493,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    14 分
                 </div>
                 
 
@@ -508,14 +516,281 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="行内公示">行内公示</h1>
+                <h2 id="倾向得分匹配psm中协变量的筛选">倾向得分匹配(PSM)中协变量的筛选</h2>
+<blockquote>
+<p>倾向得分匹配分析 (PSM) 已经在诸多领域得到了应用。虽然 PSM 不能完全解决内生性问题，但却能在很大程度上缓解自我选择问题导致的偏差。在前期文献中，Becker &amp; Ichino (2002, Stata Journal, 2(4):358-377) 对 PSM 的分析过程进行了详细的介绍，Stata 中也有多个命令可以执行 PSM 分析，如 <code>pscore</code>, <code>psmatch2</code>, <code>treatrew</code>(Stata Journal, 14(3): 541-561), <code>gpscore</code> (SJ 8(3):354--373), <code>kmatch</code></p>
+</blockquote>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">net describe st0328,from(http://www.stata-journal.com/software/sj14-1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>--------------------------------------------------------------------------------
+package st0328 from http://www.stata-journal.com/software/sj14-1
+--------------------------------------------------------------------------------
+
+TITLE
+      SJ14-1 st0328. Estimation of the generalized...
+
+DESCRIPTION/AUTHOR(S)
+      Estimation of the generalized propensity score
+        through generalized linear models
+      by Barbara Guardabascio, Istat, Italian National
+           Institute of Statistics, Rome, Italy
+         Marco Ventura, Istat, Italian National
+           Institute of Statistics, Rome, Italy
+      Support:  guardabascio@istat.it
+      After installation, type help glmgpscore and
+        glmdose
+      This also requires doseresponse_model.ado; type
+        {cmd:search doseresponse_model} and follow the links
+        to install the latest package.
+
+INSTALLATION FILES                               (type net install st0328)
+      st0328/glmdose.ado
+      st0328/glmgpscore.ado
+      st0328/glmdose.sthlp
+      st0328/glmgpscore.sthlp
+
+ANCILLARY FILES                                  (type net get st0328)
+      st0328/lotterydataset.dta
+      st0328/output_flog.dta
+      st0328/output_proof.dta
+      st0328/examples.do
+--------------------------------------------------------------------------------</code></pre>
+<h3 id="平衡性假设">平衡性假设</h3>
+<p>在 PSM 匹配时，用treat变量对控制变量进行Logit回归，得到倾向得分值。倾向得分值最接近的控制组个体即为实验组的配对样本，通过这种方法可以最大程度减少实验组与控制组个体存在的系统性差异，从而减少估计偏误。在进行PSM匹配后的其他估计前比如PSM-DID 估计前，还需进行协变量的平衡性假设检验，即匹配后各变量在实验组和控制组之间是否变得平衡，也就是说实验组和控制组协变量的均值在匹配后是否具有显著差异。如果不存在显著差异，则支持进一步的模型估计。</p>
+<p>在平衡性检验之前，我们先使用<code>psmatch2</code>命令进行PSM匹配，处理变量为train，协变量为age、educ、black，结果变量为re78，采用一对一近邻匹配，具体操作如下：</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use ldw_exper.dta,clear<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">findname<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>t         educ      hisp      nodegree  re75      u74
+age       black     married   re74      re78      u75</code></pre>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2 t  age educ black, out(re78) logit ate neighbor(1) common caliper(.05) ties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Logistic regression                             Number of obs     =        445
+                                                LR chi2(3)        =       3.51
+                                                Prob &gt; chi2       =     0.3192
+Log likelihood = -300.34408                     Pseudo R2         =     0.0058
+
+------------------------------------------------------------------------------
+           t |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         age |   .0143112   .0136229     1.05   0.293    -.0123892    .0410116
+        educ |   .0793213   .0546484     1.45   0.147    -.0277876    .1864302
+       black |   .0790505   .2625391     0.30   0.763    -.4355167    .5936176
+       _cons |  -1.580782   .6798444    -2.33   0.020    -2.913252   -.2483115
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+&gt; --------
+        Variable     Sample |    Treated     Controls   Difference         S.E. 
+&gt;   T-stat
+----------------------------+---------------------------------------------------
+&gt; --------
+            re78  Unmatched | 6.34914538   4.55480228   1.79434311   .632853552 
+&gt;     2.84
+                        ATT | 6.26522687   4.18443652   2.08079035   .752125106 
+&gt;     2.77
+                        ATU | 4.55541071   6.05253804   1.49712733            . 
+&gt;        .
+                        ATE |                           1.73855158            . 
+&gt;        .
+----------------------------+---------------------------------------------------
+&gt; --------
+Note: S.E. does not take into account that the propensity score is estimated.
+
+ psmatch2: |   psmatch2: Common
+ Treatment |        support
+assignment | Off suppo  On suppor |     Total
+-----------+----------------------+----------
+ Untreated |         2        258 |       260 
+   Treated |         3        182 |       185 
+-----------+----------------------+----------
+     Total |         5        440 |       445 </code></pre>
+<p>PSM 匹配完成之后，我们需要检验匹配后的样本是否满足平衡性假设，即实验组与控制组的匹配协变量是否没有显著性差异，在这里可以使用<code>pstest</code>命令进行检验，具体如下：</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">pstest age educ black hisp married , t(t)  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>------------------------------------------------------------------------------
+                        |       Mean               |     t-test    |  V(T)/
+Variable                | Treated Control    %bias |    t    p&gt;|t| |  V(C)
+------------------------+--------------------------+---------------+----------
+age                     | 25.527   24.714     11.4 |   1.19  0.234 |  1.24
+educ                    | 10.291   10.401     -6.0 |  -0.59  0.557 |  1.60*
+black                   | .84066   .87363     -8.9 |  -0.90  0.370 |     .
+hisp                    | .06044   .09066    -10.9 |  -1.09  0.277 |     .
+married                 | .18681    .1522      9.2 |   0.88  0.380 |     .
+------------------------------------------------------------------------------
+* if variance ratio outside [0.75; 1.34]
+
+----------------------------------------------------------------------
+Ps R2   LR chi2   p&gt;chi2   MeanBias   MedBias      B       R     %Var 
+----------------------------------------------------------------------
+0.019      9.70    0.084      9.3       9.2      32.4*    2.23*    50
+----------------------------------------------------------------------
+* if B&gt;25%, R outside [0.5; 2]</code></pre>
+<h3 id="选择匹配协变量">选择匹配协变量</h3>
+<p>根据t检验结果发现，以上5个协变量在实验组与控制组之间不存在显著性差异。</p>
+<p>那么，在进行 PSM 分析之前，应当如何选择匹配协变量，使模型实现最佳的拟合效果呢？今天介绍的 psestimate 命令可以通过比较不同模型的极大似然值，帮助我们选择能实现最佳拟合效果的协变量的一阶和二阶形式。</p>
+<p>The <code>psestimate</code> command estimates the propensity score proposed by <a target="_blank" rel="noopener" href="https://www.sci-hub.shop/10.3368/jhr.50.2.373">Imbens and Rubin (2015)</a>. The main purpose of the program is to select a linear or quadratic function of covariates to include in the estimation function of the propensity score.</p>
+<h4 id="命令的安装与示例数据导入">命令的安装与示例数据导入</h4>
+<p>在Stata命令窗口执行第一行代码即可完成对 <code>psestimate</code> 命令的下载，然后输入第二行命令下载网上示例数据 nswre74.dta（LaLonde, 1986），并执行第三行命令导入数据。</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">ssc install psestimate, replace //安装命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>checking psestimate consistency and verifying not already installed...
+all files already exist and are up to date.</code></pre>
+<h4 id="命令的语法">命令的语法</h4>
+<p>该命令的语法如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">psestimate depvar [indepvars] [if] [in] [, options]
+options：             
+     totry(indepvars)     
+     notry(varlist)       
+     nolin               
+     noquad              
+     clinear(real)       
+     cquadratic(real)    
+     iterate(#)          
+     genpscore(newvar)   
+     genlor(newvar)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>各个主要选项的含义如下：</p>
 <ul>
-<li>这里一个行内公示<span class="math inline">\(\Delta_{i,t}=x^{2}+y_{i}\)</span></li>
+<li><code>depvar</code>，必选项，填入处理变量（如 treat），即标记是否参与实验的虚拟变量</li>
+<li><code>indepvars</code>，可选项，指定基准模型中的协变量</li>
+<li><code>totry(indepvars)</code>，可选项，放入供选择的协变量列表，默认为全部</li>
+<li><code>notry(varlist)</code>，可选项，指定不包括的协变量列表，默认为没有</li>
+<li><code>nolin</code>，可选项，指定不进行一阶多项式的选择</li>
+<li><code>noquad</code>，可选项，指定不进行二阶多项式的选择</li>
+<li><code>clinear(real)</code>，可选项，指定一阶协变量似然比检验的门槛值，默认值为 1</li>
+<li><code>cquadratic(real)</code>，可选项，指定二阶协变量似然比检验的门槛值，默认值是 2.71</li>
+<li><code>iterate(#)</code>，可选项，指定在每个 logit 中执行循环的最大值，默认值是 16000</li>
+<li><code>genpscore(newvar)</code>，可选项，由于指定程序自动生成的用于记录倾向得分值的新变量的名称</li>
+<li><code>genlor(newvar)</code>，可选项，生成对数似然比的新变量的名称</li>
 </ul>
-<h2 id="独立公示">独立公示</h2>
-<p><span class="math display">\[
-y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
-\]</span></p>
+<h3 id="命令操作">命令操作</h3>
+<p> </p>
+<h4 id="命令基本操作">命令基本操作</h4>
+<p>下面本文将基于 <code>psestimate</code> 命令的作者提供的数据集 <strong>nswre74.dta</strong> 来简要说明如何使用 <code>psestimate</code> 这一命令来选择能最好拟合处理变量 (treat) 的协变量的一阶及二阶形式。</p>
+<p>在这里，我们事先选定教育变量 <strong>ed</strong> 作为基准模型中的一个协变量，意味着 Stata 自动将 <strong>ed</strong> 放入基准模型中。另外，我们将指定 <strong>age</strong>、<strong>black</strong>、<strong>hisp</strong>、<strong>nodeg</strong> 四个变量作为待选协变量。代码如下：</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use "nswre74.dta", clear
+psestimate treat ed, totry(age black hisp nodeg)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>​</p>
+<pre><code>Selecting first order covariates... (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...s..s..
+Selected first order covariates are: nodeg hisp
+Selecting second order covariates... (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....s.....
+Selected second order covariates are: c.nodeg#c.ed
+Final model is: ed nodeg hisp c.nodeg#c.ed</code></pre>
+<p>根据以上结果，可以确定在倾向得分匹配中，我们应该选取的一阶协变量为 <strong>nodeg</strong>、<strong>hisp</strong>，二阶协变量为 <strong>c.nodeg#c.ed</strong>。综上，根据 <code>psestimate</code> 命令的运算结果，我们应该选取 <strong>ed</strong>、<strong>nodeg</strong>、<strong>hisp</strong>、<strong>c.nodeg#c.ed</strong> 等四个变量作为倾向得分匹配的协变量。</p>
+<h4 id="提升运算速度">提升运算速度</h4>
+<p><code>psestimate</code>命令在运算中会耗费较长时间，而通常来说，该命令在选择协变量的一阶形式时要快于二阶形式的选择，因此，为了加快运算速度，我们可以首先通过加入<code>noquad</code>选项，只对协变量的一阶形式进行筛选，当一阶形式选定后，将其作为解释变量放入基准模型中，然后加入<code>nolin</code> 选项跳过一阶形式筛选步骤，只对协变量的二阶形式进行筛选。具体操作如下。</p>
+<p>首先，加入入<code>noquad</code>选项，只筛选协变量的一阶形式，如下：</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use "nswre74.dta", clear
+psestimate treat ed, totry(age black hisp nodeg) noquad<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>​</p>
+<pre><code>Selecting first order covariates... (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...s..s..
+Selected first order covariates are: nodeg hisp
+Final model is: ed nodeg hisp</code></pre>
+<p>然后，将选定的<strong>ed</strong>、<strong>nodeg</strong>、<strong>hisp</strong>作为解释变量放入基准模型中，加入<code>nolin</code>选项值进行二阶形式的筛选，操作如下：。</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psestimate treat ed nodeg hisp , totry(age black hisp nodeg) nolin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Selecting second order covariates... (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....s.....
+Selected second order covariates are: c.nodeg#c.ed
+Final model is: ed nodeg hisp  c.nodeg#c.ed</code></pre>
+<h3 id="psestimate-的核心思想">psestimate 的核心思想</h3>
+<p> </p>
+<h4 id="协变量一阶形式的选择">协变量一阶形式的选择</h4>
+<p>第一步，该程序首先在基准模型（<code>logit treat ed</code>）基础上通过循环分别加入 <code>totry()</code> 中指定的四个变量 <strong>age</strong>、<strong>black</strong>、<strong>hisp</strong>、<strong>nodeg</strong>，进行四次模型估计，如下所示：</p>
+<pre class="line-numbers language-none"><code class="language-none">logit treat ed age
+logit treat ed black
+logit treat ed hisp
+logit treat ed nodeg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>每次估计完成后，它将得到的新的极大似然值与基准模型比较，选择上述四个模型中对数极大似然值 (Log-Likelihood, 简称 LL 值) 最大的模型中的协变量放入基准模型中，除非上述四个模型的极大似然值都低于 <code>clinear(real)</code> 中指定的门槛值。若此处假设为 <strong>nodeg</strong>，则基准模型扩展为 <code>logit treat ed nodeg</code>, 然后第二步，它将估计如下模型：</p>
+<pre class="line-numbers language-none"><code class="language-none">logit treat ed nodeg age
+logit treat ed nodeg black
+logit treat ed nodeg hisp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这一步的协变量筛选原则与第一b步相同。可以看出，当供选择的协变量数量为<span class="math inline">\(C\)</span>时，在确定协变量的一阶形式时，该程序理论上会估计<span class="math inline">\(\sum C\)</span> 个 Logit 模型。本例中有 4 个供选择的协变量，则需要估计 10 次（如下括号中所示），该命令选择的协变量一阶形式结果如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">Selecting first order covariates... (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...s..s..
+Selected first order covariates are: nodeg hisp<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p> </p>
+<h4 id="协变量二阶形式的选择">协变量二阶形式的选择</h4>
+<p>在协变量二阶形式的选择上，主要分为协变量平方项以及协变量间的交乘项。 如果在一阶形式中只选择了 <strong>a</strong> 这一个协变量，则二阶形式的选择只需要检验 <strong>a^2</strong> 这一变量。但是如果有 <strong>a</strong>、<strong>b</strong> 两个一阶协变量被选择，则二阶形式的选择需要检验 <strong>a<sup>2<strong>、</strong>b</sup>2</strong>、<strong>ab</strong> 三个二阶协变量形式。具体到本例，确定的一阶协变量有 <strong>ed</strong>、<strong>nodeg</strong>、<strong>hisp</strong> 三个，则需要检验的二阶协变量有六个，即 <strong>ed<sup>2<strong>、</strong>nodeg</sup>2</strong>、<strong>hisp^2</strong>、<strong>c.ed#c.nodeg</strong>、<strong>c.ed#c.hisp</strong>、<strong>c.nodeg#c.hisp</strong>，筛选过程与选择协变量一阶形式的方法一致。因此本例中共需估计 即 21 次（如下括号中所示），结果如下所示：</p>
+<pre class="line-numbers language-none"><code class="language-none">Selecting second order covariates... (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....s.....
+Selected second order covariates are: c.nodeg#c.ed
+Final model is: ed nodeg hisp c.nodeg#c.ed<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> </p>
+<h4 id="流程图展示">流程图展示</h4>
+<p>如下流程图可以更加直观地展现<code>psestimate</code>筛选协变量一阶及二阶形式的过程，为简化分析，我们可供选择的协变量为<strong>a</strong>、<strong>b</strong>两个变量，假设各模型的对数极大似然值存在如下大小关系，LL1&gt;LL2&gt; <code>clinear()</code> &gt;LL3,LL4&gt;LL5&gt;LL6&gt; <code>cquadratic()</code> &gt;LL7&gt;LL8。</p>
+<figure>
+<img src="https://fig-lianxh.oss-cn-shenzhen.aliyuncs.com/17510288-32214398557f861a.png" alt=""><figcaption>图1.流程图</figcaption>
+</figure>
+<h3 id="psm估计的完整流程示例">PSM估计的完整流程示例</h3>
+<p> </p>
+<h4 id="psestimate-筛选匹配变量的一阶二阶形式">psestimate 筛选匹配变量的一阶、二阶形式</h4>
+<p>第一步，使用<code>psestimate</code>筛选匹配变量</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">use "nswre74.dta", clear
+psestimate treat ed, totry(age black hisp nodeg) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>​</p>
+<pre><code>Selecting first order covariates... (10)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+...s..s..
+Selected first order covariates are: nodeg hisp
+Selecting second order covariates... (21)
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5 
+.....s.....
+Selected second order covariates are: c.nodeg#c.ed
+Final model is: ed nodeg hisp c.nodeg#c.ed</code></pre>
+<p>最终选择的匹配变量为<strong>ed</strong>、<strong>nodeg</strong>、<strong>hisp</strong>、<strong>c.nodeg#c.ed</strong></p>
+<h4 id="psmatch2-基于筛选出的匹配变量进行psm匹配">psmatch2 基于筛选出的匹配变量进行PSM匹配</h4>
+<p>基于上述匹配变量进行PSM匹配：</p>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psmatch2 treat ed nodeg hisp c.nodeg#c.ed, logit ate neighbor(1) common caliper(.05) ties<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>Logistic regression                             Number of obs     =        445
+                                                LR chi2(4)        =      17.03
+                                                Prob &gt; chi2       =     0.0019
+Log likelihood = -293.58317                     Pseudo R2         =     0.0282
+
+------------------------------------------------------------------------------
+       treat |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+          ed |   .5093428   .3298117     1.54   0.123    -.1370762    1.155762
+       nodeg |   6.506319   4.112404     1.58   0.114    -1.553845    14.56648
+        hisp |  -.5954105   .3754841    -1.59   0.113    -1.331346    .1405248
+             |
+c.nodeg#c.ed |  -.6068825   .3375387    -1.80   0.072    -1.268446    .0546813
+             |
+       _cons |  -6.021438    4.05441    -1.49   0.138    -13.96794    1.925059
+------------------------------------------------------------------------------</code></pre>
+<h4 id="pstest-进行平衡性假设检验">pstest 进行平衡性假设检验</h4>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">pstest ed nodeg hisp c.nodeg#c.ed, t(treat)  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code>------------------------------------------------------------------------------
+                        |       Mean               |     t-test    |  V(T)/
+Variable                | Treated Control    %bias |    t    p&gt;|t| |  V(C)
+------------------------+--------------------------+---------------+----------
+ed                      |  10.29   10.464     -9.6 |  -0.91  0.363 |  1.28
+nodeg                   | .71585   .69399      5.3 |   0.46  0.648 |     .
+hisp                    | .06011   .06011     -0.0 |  -0.00  1.000 |     .
+c.nodeg#c.ed            | 6.7814    6.694      2.1 |   0.18  0.854 |  0.96
+------------------------------------------------------------------------------
+* if variance ratio outside [0.75; 1.34]
+
+----------------------------------------------------------------------
+Ps R2   LR chi2   p&gt;chi2   MeanBias   MedBias      B       R     %Var 
+----------------------------------------------------------------------
+0.002      1.09    0.896      4.2       3.7      10.8    1.43       0
+----------------------------------------------------------------------
+* if B&gt;25%, R outside [0.5; 2]</code></pre>
+<h4 id="psgraph-绘图直观呈现各匹配变量的平衡性状况">psgraph 绘图直观呈现各匹配变量的平衡性状况</h4>
+<pre class="line-numbers language-stata" data-language="stata"><code class="language-stata">psgraph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>图中也可以直观看出，实验组与控制组的倾向得分值分布大致平衡。</p>
+</blockquote>
+<h4 id="参考文献">参考文献</h4>
+<ol type="1">
+<li>Dehejia, Rajeev H. and Sadek Wahba. 1999. "Causal Effects in Nonexperimental Studies". Journal of the American Statistical Association 94(448): 1053-1062.</li>
+<li>Imbens, Guido W. and Donald B. Rubin. 2015. Causal Inference in Statistics, Social, and Biomedical Sciences. New York: Cambridge University Press.</li>
+<li>Imbens, Guido W. 2015. “Matching Methods in Practice: Three Examples.” Journal of Human Resources 50 (2): 373–419. [<a target="_blank" rel="noopener" href="https://www.sci-hub.shop/10.3368/jhr.50.2.373">PDF1]</a>， [<a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/975a/9905a091498d9878ebcd42cb01eff7e02e8d.pdf?_ga=2.17924345.130556769.1557067739-533034284.1555775018">PDF2-wp]</a></li>
+<li>LaLonde, Robert J. 1986. “Evaluating the Econometric Evaluations of Training Programs with Experimental Data.” The American Economic Review 76 (4): 604–20. [<a target="_blank" rel="noopener" href="http://www.uh.edu/~adkugler/Lalonde.pdf">PDF]</a></li>
+</ol>
 
                 
             </div>
@@ -542,7 +817,7 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wangshao0818.com/posts/3927316218/">https://wangshao0818.com/posts/3927316218/</a>
+                    <a href="https://wangshao0818.com/posts/2474087707/">https://wangshao0818.com/posts/2474087707/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -580,8 +855,16 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%85%AC%E5%BC%8F/">
-                                    <span class="chip bg-color">公式</span>
+                                <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                                    <span class="chip bg-color">计量经济学</span>
+                                </a>
+                            
+                                <a href="/tags/PSM/">
+                                    <span class="chip bg-color">PSM</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                                    <span class="chip bg-color">倾向得分匹配法</span>
                                 </a>
                             
                         </div>
@@ -755,13 +1038,13 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/3724259502/">
+                <a href="/posts/2474087706/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="工业数据分析手册">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="倾向得分匹配法（PSM）">
                         
-                        <span class="card-title">工业数据分析手册</span>
+                        <span class="card-title">倾向得分匹配法（PSM）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -772,14 +1055,14 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%8F%E8%A7%82%E7%BB%8F%E6%B5%8E/" class="post-category">
-                                    宏观经济
+                            <a href="/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="post-category">
+                                    计量经济学
                                 </a>
                             
                             
@@ -789,8 +1072,16 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BB%8F%E6%B5%8E%E6%8C%87%E6%A0%87/">
-                        <span class="chip bg-color">经济指标</span>
+                    <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                        <span class="chip bg-color">计量经济学</span>
+                    </a>
+                    
+                    <a href="/tags/PSM/">
+                        <span class="chip bg-color">PSM</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                        <span class="chip bg-color">倾向得分匹配法</span>
                     </a>
                     
                 </div>
@@ -801,16 +1092,16 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3927316218/">
+                <a href="/posts/2474087708/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="第四三篇博客">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="倾向得分匹配法（PSM）">
                         
-                        <span class="card-title">第四三篇博客</span>
+                        <span class="card-title">倾向得分匹配法（PSM）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -821,26 +1112,33 @@ y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                    程序
+                            <a href="/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="post-category">
+                                    计量经济学
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%AC%E5%BC%8F/">
-                        <span class="chip bg-color">公式</span>
+                    <a href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
+                        <span class="chip bg-color">计量经济学</span>
+                    </a>
+                    
+                    <a href="/tags/PSM/">
+                        <span class="chip bg-color">PSM</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/">
+                        <span class="chip bg-color">倾向得分匹配法</span>
                     </a>
                     
                 </div>
