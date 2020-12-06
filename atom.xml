@@ -6,7 +6,7 @@
   <link href="https://wangshao0818.com/atom.xml" rel="self"/>
   
   <link href="https://wangshao0818.com/"/>
-  <updated>2020-12-06T08:30:27.219Z</updated>
+  <updated>2020-12-06T08:47:33.131Z</updated>
   <id>https://wangshao0818.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wangshao0818.com/posts/2474087705/"/>
     <id>https://wangshao0818.com/posts/2474087705/</id>
     <published>2020-12-06T08:26:12.000Z</published>
-    <updated>2020-12-06T08:30:27.219Z</updated>
+    <updated>2020-12-06T08:47:33.131Z</updated>
     
     
       
@@ -130,6 +130,35 @@ GDP，中文名叫国内生产总值，是目前衡量一国经济发展最重�
     
     
     <category term="经济指标" scheme="https://wangshao0818.com/tags/%E7%BB%8F%E6%B5%8E%E6%8C%87%E6%A0%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第四三篇博客</title>
+    <link href="https://wangshao0818.com/posts/3927316218/"/>
+    <id>https://wangshao0818.com/posts/3927316218/</id>
+    <published>2020-11-30T08:12:16.000Z</published>
+    <updated>2020-11-30T14:15:44.699Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;行内公示&quot;&gt;行内公示&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;这里一个行内公示&lt;span class=&quot;math inline&quot;&gt;\(\Delta_{i,t}=x^{2}+y_{i}\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="程序" scheme="https://wangshao0818.com/categories/%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+    <category term="公式" scheme="https://wangshao0818.com/tags/%E5%85%AC%E5%BC%8F/"/>
     
   </entry>
   

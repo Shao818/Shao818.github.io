@@ -110,6 +110,31 @@
     </entry>
     
     
+    
+    <entry>
+      <title>第四三篇博客</title>
+      <link href="posts/3927316218/"/>
+      <url>posts/3927316218/</url>
+      
+        <content type="html"><![CDATA[<h1 id="行内公示">行内公示</h1><ul><li>这里一个行内公示<span class="math inline">\(\Delta_{i,t}=x^{2}+y_{i}\)</span></li></ul><h2 id="独立公示">独立公示</h2><p><span class="math display">\[y^{t}=x_{2}+\sum_{i=1}^{t=10}X_{i} \tag{1}\]</span></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 程序 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 公式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
