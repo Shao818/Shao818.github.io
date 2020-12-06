@@ -6,7 +6,7 @@
   <link href="https://wangshao0818.com/atom.xml" rel="self"/>
   
   <link href="https://wangshao0818.com/"/>
-  <updated>2020-12-03T01:03:11.245Z</updated>
+  <updated>2020-12-06T08:30:27.219Z</updated>
   <id>https://wangshao0818.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>倾向得分匹配法（PSM）</title>
+    <link href="https://wangshao0818.com/posts/2474087705/"/>
+    <id>https://wangshao0818.com/posts/2474087705/</id>
+    <published>2020-12-06T08:26:12.000Z</published>
+    <updated>2020-12-06T08:30:27.219Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;stata手动各类匹配方法大全-a理论篇&quot;&gt;Stata手动：各类匹配方法大全 A——理论篇&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;匹配是研究处理效应的常见工具，本文总结了常见的匹配方法，并在第三部分给出 Stata</summary>
+        
+      
+    
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    
+    <category term="计量经济学" scheme="https://wangshao0818.com/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/"/>
+    
+    <category term="PSM" scheme="https://wangshao0818.com/tags/PSM/"/>
+    
+    <category term="倾向得分匹配法" scheme="https://wangshao0818.com/tags/%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>数据科学</title>
@@ -99,162 +130,6 @@ GDP，中文名叫国内生产总值，是目前衡量一国经济发展最重�
     
     
     <category term="经济指标" scheme="https://wangshao0818.com/tags/%E7%BB%8F%E6%B5%8E%E6%8C%87%E6%A0%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>代码测试</title>
-    <link href="https://wangshao0818.com/posts/4170273841/"/>
-    <id>https://wangshao0818.com/posts/4170273841/</id>
-    <published>2020-11-30T12:59:25.000Z</published>
-    <updated>2020-11-30T13:01:32.981Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;行内代码&quot;&gt;行内代码&lt;/h1&gt;
-&lt;p&gt;其中存在代码&lt;code&gt;code&lt;/code&gt;&lt;/p&gt;
-&lt;h1 id=&quot;单独代码&quot;&gt;单独代码&lt;/h1&gt;
-&lt;pre class=&quot;line-numbers language-R&quot; data-language=&quot;R&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    
-    <category term="代码" scheme="https://wangshao0818.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第四三篇博客</title>
-    <link href="https://wangshao0818.com/posts/3927316218/"/>
-    <id>https://wangshao0818.com/posts/3927316218/</id>
-    <published>2020-11-30T08:12:16.000Z</published>
-    <updated>2020-11-30T14:15:44.699Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;行内公示&quot;&gt;行内公示&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;这里一个行内公示&lt;span class=&quot;math inline&quot;&gt;\(\Delta_{i,t}=x^{2}+y_{i}\)&lt;/span&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="程序" scheme="https://wangshao0818.com/categories/%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-    <category term="公式" scheme="https://wangshao0818.com/tags/%E5%85%AC%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第三篇博客</title>
-    <link href="https://wangshao0818.com/posts/51420789/"/>
-    <id>https://wangshao0818.com/posts/51420789/</id>
-    <published>2020-11-30T07:57:57.000Z</published>
-    <updated>2020-11-30T14:14:33.273Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="经济" scheme="https://wangshao0818.com/categories/%E7%BB%8F%E6%B5%8E/"/>
-    
-    
-    <category term="金融" scheme="https://wangshao0818.com/tags/%E9%87%91%E8%9E%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第二篇博客</title>
-    <link href="https://wangshao0818.com/posts/3176525040/"/>
-    <id>https://wangshao0818.com/posts/3176525040/</id>
-    <published>2020-11-30T07:45:18.000Z</published>
-    <updated>2020-11-30T14:11:49.196Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="经济" scheme="https://wangshao0818.com/categories/%E7%BB%8F%E6%B5%8E/"/>
-    
-    
-    <category term="测试" scheme="https://wangshao0818.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一篇博客</title>
-    <link href="https://wangshao0818.com/posts/4278564287/"/>
-    <id>https://wangshao0818.com/posts/4278564287/</id>
-    <published>2020-11-30T07:34:18.000Z</published>
-    <updated>2020-11-30T14:15:59.427Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一级标题&quot;&gt;一级标题&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;重点&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;重点&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="代码" scheme="https://wangshao0818.com/categories/%E4%BB%A3%E7%A0%81/"/>
-    
-    
-    <category term="代码" scheme="https://wangshao0818.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://wangshao0818.com/posts/1243066710/"/>
-    <id>https://wangshao0818.com/posts/1243066710/</id>
-    <published>2020-11-30T07:28:51.471Z</published>
-    <updated>2020-11-30T08:17:57.428Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
